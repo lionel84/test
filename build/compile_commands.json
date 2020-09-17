@@ -1,0 +1,57 @@
+[
+{
+  "directory": "/data/code/main/build",
+  "command": "/usr/bin/x86_64-redhat-linux-g++   -I/data/code/main/hiredishelp -I/data/code/main/coroutine   -g -fPIC -Wextra -Wall -std=c++11  -lhiredis -levent -lpthread -Wunused-function  -g   -o CMakeFiles/main.dir/base.cpp.o -c /data/code/main/base.cpp",
+  "file": "/data/code/main/base.cpp"
+},
+{
+  "directory": "/data/code/main/build",
+  "command": "/usr/bin/x86_64-redhat-linux-g++   -I/data/code/main/hiredishelp -I/data/code/main/coroutine   -g -fPIC -Wextra -Wall -std=c++11  -lhiredis -levent -lpthread -Wunused-function  -g   -o CMakeFiles/main.dir/cache.cpp.o -c /data/code/main/cache.cpp",
+  "file": "/data/code/main/cache.cpp"
+},
+{
+  "directory": "/data/code/main/build",
+  "command": "/usr/bin/x86_64-redhat-linux-g++   -I/data/code/main/hiredishelp -I/data/code/main/coroutine   -g -fPIC -Wextra -Wall -std=c++11  -lhiredis -levent -lpthread -Wunused-function  -g   -o CMakeFiles/main.dir/coroutine_test.cpp.o -c /data/code/main/coroutine_test.cpp",
+  "file": "/data/code/main/coroutine_test.cpp"
+},
+{
+  "directory": "/data/code/main/build",
+  "command": "/usr/bin/x86_64-redhat-linux-g++   -I/data/code/main/hiredishelp -I/data/code/main/coroutine   -g -fPIC -Wextra -Wall -std=c++11  -lhiredis -levent -lpthread -Wunused-function  -g   -o CMakeFiles/main.dir/main.cpp.o -c /data/code/main/main.cpp",
+  "file": "/data/code/main/main.cpp"
+},
+{
+  "directory": "/data/code/main/build",
+  "command": "/usr/bin/x86_64-redhat-linux-g++   -I/data/code/main/hiredishelp -I/data/code/main/coroutine   -g -fPIC -Wextra -Wall -std=c++11  -lhiredis -levent -lpthread -Wunused-function  -g   -o CMakeFiles/main.dir/redis_test.cpp.o -c /data/code/main/redis_test.cpp",
+  "file": "/data/code/main/redis_test.cpp"
+},
+{
+  "directory": "/data/code/main/build",
+  "command": "/usr/bin/x86_64-redhat-linux-g++   -I/data/code/main/hiredishelp -I/data/code/main/coroutine   -g -fPIC -Wextra -Wall -std=c++11  -lhiredis -levent -lpthread -Wunused-function  -g   -o CMakeFiles/main.dir/test_map.cpp.o -c /data/code/main/test_map.cpp",
+  "file": "/data/code/main/test_map.cpp"
+},
+{
+  "directory": "/data/code/main/build",
+  "command": "/usr/bin/x86_64-redhat-linux-g++   -I/data/code/main/hiredishelp -I/data/code/main/coroutine   -g -fPIC -Wextra -Wall -std=c++11  -lhiredis -levent -lpthread -Wunused-function  -g   -o CMakeFiles/main.dir/test_rbtree.cpp.o -c /data/code/main/test_rbtree.cpp",
+  "file": "/data/code/main/test_rbtree.cpp"
+},
+{
+  "directory": "/data/code/main/build",
+  "command": "/usr/bin/x86_64-redhat-linux-g++   -I/data/code/main/hiredishelp -I/data/code/main/coroutine   -g -fPIC -Wextra -Wall -std=c++11  -lhiredis -levent -lpthread -Wunused-function  -g   -o CMakeFiles/main.dir/test_template.cpp.o -c /data/code/main/test_template.cpp",
+  "file": "/data/code/main/test_template.cpp"
+},
+{
+  "directory": "/data/code/main/build",
+  "command": "/usr/bin/x86_64-redhat-linux-g++   -I/data/code/main/hiredishelp -I/data/code/main/coroutine   -g -fPIC -Wextra -Wall -std=c++11  -lhiredis -levent -lpthread -Wunused-function  -g   -o CMakeFiles/main.dir/test_tree.cpp.o -c /data/code/main/test_tree.cpp",
+  "file": "/data/code/main/test_tree.cpp"
+},
+{
+  "directory": "/data/code/main/build/hiredishelp",
+  "command": "/usr/bin/x86_64-redhat-linux-g++     -g -fPIC -Wextra -Wall -std=c++11  -lhiredis -levent -lpthread -Wunused-function  -g   -o CMakeFiles/hiredishelp.dir/HiredisHelper.cpp.o -c /data/code/main/hiredishelp/HiredisHelper.cpp",
+  "file": "/data/code/main/hiredishelp/HiredisHelper.cpp"
+},
+{
+  "directory": "/data/code/main/build/coroutine",
+  "command": "/usr/bin/x86_64-redhat-linux-g++   -I/data/code/main/hiredishelp   -g -fPIC -Wextra -Wall -std=c++11  -lhiredis -levent -lpthread -Wunused-function  -g   -o CMakeFiles/coroutine.dir/coroutine.cpp.o -c /data/code/main/coroutine/coroutine.cpp",
+  "file": "/data/code/main/coroutine/coroutine.cpp"
+}
+]

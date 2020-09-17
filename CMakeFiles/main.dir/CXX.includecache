@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/data/code/main/base.h
+vector
+-
+algorithm
+-
+sys/time.h
+-
+functional
+-
+assert.h
+-
+
+/data/code/main/test_test.cpp
+test_test.h
+/data/code/main/test_test.h
+base.h
+/data/code/main/base.h
+
+/data/code/main/test_test.h
+

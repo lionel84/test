@@ -1,0 +1,54 @@
+CFLAGS += -g -fPIC -Wextra -Werror -Wall -std=c++11 -lhiredis -levent -lpthread -Wunused-function
+
+WORK_PATH=.
+
+CINC += -I $(WORK_PATH)/corotine/
+CINC += -I $(WORK_PATH)/hiredis
+
+CFLAGS += $(CINC)
+
+CC = g++
+
+all : test 
+
+#%.o: %.c %.cpp %.h
+#    @$(CC) -c $(CFLAGS) $< -o $@  && echo build [$@] ok. || (>&2 echo [ERROR]: failed to build [$@]: $(CC) -c $(CFLAGS) $< -o $@ && exit 1)
+    
+#不编译的文件夹
+SUBDIRS_EXCLUDE = bak client_setting feature
+#优先编译的文件夹
+HIGH_PRIORITY_DIR =
+
+#============= SUB MODULE===============
+#遍历所有子文件夹名，并去除不需要编译的
+#SUBDIRS_ALL := $(sort $(subst /,,$(dir $(wildcard */*))))
+SUBDIRS_ALL = $(sort $(subst ./,,$(shell find . -type d | grep -v .svn)))
+SUBDIRS = $(filter-out $(SUBDIRS_EXCLUDE) $(HIGH_PRIORITY_DIR), $(SUBDIRS_ALL))
+
+
+TARGET_SRC =  $(foreach dir, $(SUBDIRS), $(wildcard $(dir)/*.c))
+#TARGET_SRC += $(wildcard *.c)
+TARGET_CPPSRC =  $(foreach dir, $(SUBDIRS), $(wildcard $(dir)/*.cpp))
+TARGET_OBJ =  $(TARGET_SRC:.c=.o)
+TARGET_OBJ += $(TARGET_CPPSRC:.cpp=.o)
+
+VPATH:=$(WORK_PATH)
+
+%.o: %.c %.h
+	$(CC) -c $(CFLAGS) $< -o $@
+
+#@$(CC) -c $(CFLAGS) $< -o $@  && echo build [$@] ok. || (>&2 echo [ERROR]: failed to build [$@]: $(CC) -c $(CFLAGS) $< -o $@ && exit 1)
+
+%.o: %.cpp %.h
+	$(CC) -c $(CFLAGS) $< -o $@
+
+#@$(CC) -c $(CFLAGS) $< -o $@  && echo build [$@] ok. || (>&2 echo [ERROR]: failed to build [$@]: $(CC) -c $(CFLAGS) $< -o $@ && exit 1)
+
+test : $(TARGET_OBJ)  
+	$(CC) $(CFLAGS) -o $@ $^
+
+clean :
+	rm test 
+	rm *.o
+
+.PHONY : clean

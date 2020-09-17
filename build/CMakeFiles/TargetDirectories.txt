@@ -1,0 +1,9 @@
+/data/code/main/build/CMakeFiles/rebuild_cache.dir
+/data/code/main/build/CMakeFiles/edit_cache.dir
+/data/code/main/build/CMakeFiles/main.dir
+/data/code/main/build/hiredishelp/CMakeFiles/edit_cache.dir
+/data/code/main/build/hiredishelp/CMakeFiles/rebuild_cache.dir
+/data/code/main/build/hiredishelp/CMakeFiles/hiredishelp.dir
+/data/code/main/build/coroutine/CMakeFiles/rebuild_cache.dir
+/data/code/main/build/coroutine/CMakeFiles/edit_cache.dir
+/data/code/main/build/coroutine/CMakeFiles/coroutine.dir

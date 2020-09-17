@@ -1,0 +1,2 @@
+/usr/bin/ar qc libhiredis.a  CMakeFiles/hiredis.dir/HiredisHelper.cpp.o
+/usr/bin/ranlib libhiredis.a

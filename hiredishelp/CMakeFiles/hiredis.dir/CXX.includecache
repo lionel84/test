@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/data/code/main/hiredis/HiredisHelper.cpp
+iostream
+-
+vector
+-
+sstream
+-
+HiredisHelper.h
+/data/code/main/hiredis/HiredisHelper.h
+stddef.h
+-
+assert.h
+-
+string.h
+-
+
+/data/code/main/hiredis/HiredisHelper.h
+stdlib.h
+-
+hiredis/async.h
+-
+hiredis/adapters/libevent.h
+-
+string
+-
+vector
+-
+unistd.h
+-
+pthread.h
+-
+semaphore.h
+-
+functional
+-
+

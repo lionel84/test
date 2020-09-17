@@ -1,0 +1,156 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CC	Makefile	/^CC = g++$/;"	m
+COROUTINE_DEAD	corotine/coroutine.h	4;"	d
+COROUTINE_READY	corotine/coroutine.h	5;"	d
+COROUTINE_RUNNING	corotine/coroutine.h	6;"	d
+COROUTINE_SUSPEND	corotine/coroutine.h	7;"	d
+C_COROUTINE_H	corotine/coroutine.h	2;"	d
+Connect	hiredis/HiredisHelper.cpp	/^bool HiredisHelper::Connect()$/;"	f	class:HiredisHelper	signature:()
+Connect	hiredis/HiredisHelper.h	/^	bool Connect();$/;"	p	class:HiredisHelper	access:public	signature:()
+Connect1	hiredis/HiredisHelper.cpp	/^bool HiredisHelper::Connect1()$/;"	f	class:HiredisHelper	signature:()
+DEFAULT_COROUTINE	corotine/coroutine.cpp	16;"	d	file:
+ExecuteAsyncCmd	hiredis/HiredisHelper.cpp	/^int HiredisHelper::ExecuteAsyncCmd(redisCallbackFn* fn, void *privdata, const char *cmd) {$/;"	f	class:HiredisHelper	signature:(redisCallbackFn* fn, void *privdata, const char *cmd)
+ExecuteAsyncCmd	hiredis/HiredisHelper.h	/^    int ExecuteAsyncCmd(redisCallbackFn* fn, void *privdata, const char *cmd); $/;"	p	class:HiredisHelper	access:public	signature:(redisCallbackFn* fn, void *privdata, const char *cmd)
+ExecutevAsyncCmd	hiredis/HiredisHelper.cpp	/^int HiredisHelper::ExecutevAsyncCmd(redisCallbackFn* fn, void *privdata, const char *format, ...) {$/;"	f	class:HiredisHelper	signature:(redisCallbackFn* fn, void *privdata, const char *format, ...)
+ExecutevAsyncCmd	hiredis/HiredisHelper.h	/^    int ExecutevAsyncCmd(redisCallbackFn* fn, void *privdata, const char *format, ...);$/;"	p	class:HiredisHelper	access:public	signature:(redisCallbackFn* fn, void *privdata, const char *format, ...)
+HIREDISHELPER_H_	hiredis/HiredisHelper.h	11;"	d
+HiredisHelper	hiredis/HiredisHelper.h	/^	HiredisHelper(){};$/;"	f	class:HiredisHelper	access:public	signature:()
+HiredisHelper	hiredis/HiredisHelper.h	/^class HiredisHelper {$/;"	c
+HiredisHelper.cpp	hiredis/HiredisHelper.cpp	1;"	F
+HiredisHelper.h	hiredis/HiredisHelper.h	1;"	F
+HiredisHelper::Connect	hiredis/HiredisHelper.cpp	/^bool HiredisHelper::Connect()$/;"	f	class:HiredisHelper	signature:()
+HiredisHelper::Connect	hiredis/HiredisHelper.h	/^	bool Connect();$/;"	p	class:HiredisHelper	access:public	signature:()
+HiredisHelper::Connect1	hiredis/HiredisHelper.cpp	/^bool HiredisHelper::Connect1()$/;"	f	class:HiredisHelper	signature:()
+HiredisHelper::ExecuteAsyncCmd	hiredis/HiredisHelper.cpp	/^int HiredisHelper::ExecuteAsyncCmd(redisCallbackFn* fn, void *privdata, const char *cmd) {$/;"	f	class:HiredisHelper	signature:(redisCallbackFn* fn, void *privdata, const char *cmd)
+HiredisHelper::ExecuteAsyncCmd	hiredis/HiredisHelper.h	/^    int ExecuteAsyncCmd(redisCallbackFn* fn, void *privdata, const char *cmd); $/;"	p	class:HiredisHelper	access:public	signature:(redisCallbackFn* fn, void *privdata, const char *cmd)
+HiredisHelper::ExecutevAsyncCmd	hiredis/HiredisHelper.cpp	/^int HiredisHelper::ExecutevAsyncCmd(redisCallbackFn* fn, void *privdata, const char *format, ...) {$/;"	f	class:HiredisHelper	signature:(redisCallbackFn* fn, void *privdata, const char *format, ...)
+HiredisHelper::ExecutevAsyncCmd	hiredis/HiredisHelper.h	/^    int ExecutevAsyncCmd(redisCallbackFn* fn, void *privdata, const char *format, ...);$/;"	p	class:HiredisHelper	access:public	signature:(redisCallbackFn* fn, void *privdata, const char *format, ...)
+HiredisHelper::HiredisHelper	hiredis/HiredisHelper.h	/^	HiredisHelper(){};$/;"	f	class:HiredisHelper	access:public	signature:()
+HiredisHelper::_authstring	hiredis/HiredisHelper.h	/^	string _authstring;$/;"	m	class:HiredisHelper	access:private
+HiredisHelper::_event_base	hiredis/HiredisHelper.h	/^    event_base *_event_base;$/;"	m	class:HiredisHelper	access:private
+HiredisHelper::_event_sem	hiredis/HiredisHelper.h	/^    sem_t _event_sem;$/;"	m	class:HiredisHelper	access:private
+HiredisHelper::_event_thread	hiredis/HiredisHelper.h	/^    pthread_t _event_thread;$/;"	m	class:HiredisHelper	access:private
+HiredisHelper::_ip	hiredis/HiredisHelper.h	/^	string _ip;$/;"	m	class:HiredisHelper	access:private
+HiredisHelper::_port	hiredis/HiredisHelper.h	/^	int _port;$/;"	m	class:HiredisHelper	access:private
+HiredisHelper::_redis_context	hiredis/HiredisHelper.h	/^    redisAsyncContext *_redis_context;$/;"	m	class:HiredisHelper	access:private
+HiredisHelper::_redis_context1	hiredis/HiredisHelper.h	/^    redisContext* _redis_context1;$/;"	m	class:HiredisHelper	access:private
+HiredisHelper::_timeout	hiredis/HiredisHelper.h	/^	int _timeout;$/;"	m	class:HiredisHelper	access:private
+HiredisHelper::command_callback	hiredis/HiredisHelper.cpp	/^void HiredisHelper::command_callback(redisAsyncContext *redis_context,$/;"	f	class:HiredisHelper	signature:(redisAsyncContext *redis_context, void *reply, void *privdata)
+HiredisHelper::command_callback	hiredis/HiredisHelper.h	/^    static void command_callback(redisAsyncContext *redis_context,$/;"	p	class:HiredisHelper	access:private	signature:(redisAsyncContext *redis_context, void *reply, void *privdata)
+HiredisHelper::connect_callback	hiredis/HiredisHelper.cpp	/^void HiredisHelper::connect_callback(const redisAsyncContext *redis_context,$/;"	f	class:HiredisHelper	signature:(const redisAsyncContext *redis_context, int status)
+HiredisHelper::connect_callback	hiredis/HiredisHelper.h	/^    static void connect_callback(const redisAsyncContext *redis_context,$/;"	p	class:HiredisHelper	access:private	signature:(const redisAsyncContext *redis_context, int status)
+HiredisHelper::disconnect	hiredis/HiredisHelper.cpp	/^bool HiredisHelper::disconnect()$/;"	f	class:HiredisHelper	signature:()
+HiredisHelper::disconnect	hiredis/HiredisHelper.h	/^	bool disconnect();$/;"	p	class:HiredisHelper	access:public	signature:()
+HiredisHelper::disconnect_callback	hiredis/HiredisHelper.cpp	/^void HiredisHelper::disconnect_callback($/;"	f	class:HiredisHelper	signature:( const redisAsyncContext *redis_context, int status)
+HiredisHelper::disconnect_callback	hiredis/HiredisHelper.h	/^    static void disconnect_callback(const redisAsyncContext *redis_context,$/;"	p	class:HiredisHelper	access:private	signature:(const redisAsyncContext *redis_context, int status)
+HiredisHelper::event_proc	hiredis/HiredisHelper.cpp	/^void *HiredisHelper::event_proc()$/;"	f	class:HiredisHelper	signature:()
+HiredisHelper::event_proc	hiredis/HiredisHelper.h	/^    void *event_proc();$/;"	p	class:HiredisHelper	access:public	signature:()
+HiredisHelper::event_thread	hiredis/HiredisHelper.cpp	/^void *HiredisHelper::event_thread(void *data)$/;"	f	class:HiredisHelper	signature:(void *data)
+HiredisHelper::event_thread	hiredis/HiredisHelper.h	/^    static void *event_thread(void *data);$/;"	p	class:HiredisHelper	access:private	signature:(void *data)
+HiredisHelper::init	hiredis/HiredisHelper.cpp	/^bool HiredisHelper::init(const string &ip, int port, const string &auth_str, int timeout)$/;"	f	class:HiredisHelper	signature:(const string &ip, int port, const string &auth_str, int timeout)
+HiredisHelper::init	hiredis/HiredisHelper.h	/^	bool init(const string &ip, int port, const string &auth_str, int timeout = 200);$/;"	p	class:HiredisHelper	access:public	signature:(const string &ip, int port, const string &auth_str, int timeout = 200)
+HiredisHelper::uninit	hiredis/HiredisHelper.cpp	/^bool HiredisHelper::uninit()$/;"	f	class:HiredisHelper	signature:()
+HiredisHelper::uninit	hiredis/HiredisHelper.h	/^	bool uninit();$/;"	p	class:HiredisHelper	access:public	signature:()
+HiredisHelper::~HiredisHelper	hiredis/HiredisHelper.h	/^	virtual ~HiredisHelper() {	}$/;"	f	class:HiredisHelper	access:public	signature:()
+HiredisHelperObj	Makefile	/^HiredisHelperObj=HiredisHelper.o$/;"	m
+Makefile	Makefile	1;"	F
+STACK_SIZE	corotine/coroutine.cpp	15;"	d	file:
+WORK_PATH	Makefile	/^WORK_PATH=.$/;"	m
+_authstring	hiredis/HiredisHelper.h	/^	string _authstring;$/;"	m	class:HiredisHelper	access:private
+_co_delete	corotine/coroutine.cpp	/^_co_delete(struct coroutine *co) {$/;"	f	signature:(struct coroutine *co)
+_co_new	corotine/coroutine.cpp	/^_co_new(struct schedule *S , coroutine_func func, void *ud) {$/;"	f	signature:(struct schedule *S , coroutine_func func, void *ud)
+_event_base	hiredis/HiredisHelper.h	/^    event_base *_event_base;$/;"	m	class:HiredisHelper	access:private
+_event_sem	hiredis/HiredisHelper.h	/^    sem_t _event_sem;$/;"	m	class:HiredisHelper	access:private
+_event_thread	hiredis/HiredisHelper.h	/^    pthread_t _event_thread;$/;"	m	class:HiredisHelper	access:private
+_ip	hiredis/HiredisHelper.h	/^	string _ip;$/;"	m	class:HiredisHelper	access:private
+_port	hiredis/HiredisHelper.h	/^	int _port;$/;"	m	class:HiredisHelper	access:private
+_redis_context	hiredis/HiredisHelper.h	/^    redisAsyncContext *_redis_context;$/;"	m	class:HiredisHelper	access:private
+_redis_context1	hiredis/HiredisHelper.h	/^    redisContext* _redis_context1;$/;"	m	class:HiredisHelper	access:private
+_save_stack	corotine/coroutine.cpp	/^_save_stack(struct coroutine *C, char *top) {$/;"	f	file:	signature:(struct coroutine *C, char *top)
+_timeout	hiredis/HiredisHelper.h	/^	int _timeout;$/;"	m	class:HiredisHelper	access:private
+args	main.cpp	/^struct args {$/;"	s	file:
+args::col_	main.cpp	/^    int col_;$/;"	m	struct:args	file:	access:public
+args::result_	main.cpp	/^    bool result_;$/;"	m	struct:args	file:	access:public
+args::s_	main.cpp	/^    schedule* s_;$/;"	m	struct:args	file:	access:public
+cap	corotine/coroutine.cpp	/^	int cap;$/;"	m	struct:schedule	file:	access:public
+cap	corotine/coroutine.cpp	/^	ptrdiff_t cap;$/;"	m	struct:coroutine	file:	access:public
+co	corotine/coroutine.cpp	/^	struct coroutine **co;$/;"	m	struct:schedule	typeref:struct:schedule::coroutine	file:	access:public
+col_	main.cpp	/^    int col_;$/;"	m	struct:args	file:	access:public
+command_callback	hiredis/HiredisHelper.cpp	/^void HiredisHelper::command_callback(redisAsyncContext *redis_context,$/;"	f	class:HiredisHelper	signature:(redisAsyncContext *redis_context, void *reply, void *privdata)
+command_callback	hiredis/HiredisHelper.h	/^    static void command_callback(redisAsyncContext *redis_context,$/;"	p	class:HiredisHelper	access:private	signature:(redisAsyncContext *redis_context, void *reply, void *privdata)
+connect_callback	hiredis/HiredisHelper.cpp	/^void HiredisHelper::connect_callback(const redisAsyncContext *redis_context,$/;"	f	class:HiredisHelper	signature:(const redisAsyncContext *redis_context, int status)
+connect_callback	hiredis/HiredisHelper.h	/^    static void connect_callback(const redisAsyncContext *redis_context,$/;"	p	class:HiredisHelper	access:private	signature:(const redisAsyncContext *redis_context, int status)
+coroutine	corotine/coroutine.cpp	/^struct coroutine {$/;"	s	file:
+coroutine.cpp	corotine/coroutine.cpp	1;"	F
+coroutine.h	corotine/coroutine.h	1;"	F
+coroutine::cap	corotine/coroutine.cpp	/^	ptrdiff_t cap;$/;"	m	struct:coroutine	file:	access:public
+coroutine::ctx	corotine/coroutine.cpp	/^	ucontext_t ctx;$/;"	m	struct:coroutine	file:	access:public
+coroutine::func	corotine/coroutine.cpp	/^	coroutine_func func;$/;"	m	struct:coroutine	file:	access:public
+coroutine::sch	corotine/coroutine.cpp	/^	struct schedule * sch;$/;"	m	struct:coroutine	typeref:struct:coroutine::schedule	file:	access:public
+coroutine::size	corotine/coroutine.cpp	/^	ptrdiff_t size;$/;"	m	struct:coroutine	file:	access:public
+coroutine::stack	corotine/coroutine.cpp	/^	char *stack;$/;"	m	struct:coroutine	file:	access:public
+coroutine::status	corotine/coroutine.cpp	/^	int status;$/;"	m	struct:coroutine	file:	access:public
+coroutine::ud	corotine/coroutine.cpp	/^	void *ud;$/;"	m	struct:coroutine	file:	access:public
+coroutine_close	corotine/coroutine.cpp	/^coroutine_close(struct schedule *S) {$/;"	f	signature:(struct schedule *S)
+coroutine_close	corotine/coroutine.h	/^void coroutine_close(struct schedule *);$/;"	p	signature:(struct schedule *)
+coroutine_func	corotine/coroutine.h	/^typedef void (*coroutine_func)(struct schedule *, void *ud);$/;"	t
+coroutine_new	corotine/coroutine.cpp	/^coroutine_new(struct schedule *S, coroutine_func func, void *ud) {$/;"	f	signature:(struct schedule *S, coroutine_func func, void *ud)
+coroutine_new	corotine/coroutine.h	/^int coroutine_new(struct schedule *, coroutine_func, void *ud);$/;"	p	signature:(struct schedule *, coroutine_func, void *ud)
+coroutine_open	corotine/coroutine.cpp	/^coroutine_open(void) {$/;"	f	signature:(void)
+coroutine_open	corotine/coroutine.h	/^struct schedule * coroutine_open(void);$/;"	p	signature:(void)
+coroutine_resume	corotine/coroutine.cpp	/^coroutine_resume(struct schedule * S, int id) {$/;"	f	signature:(struct schedule * S, int id)
+coroutine_resume	corotine/coroutine.h	/^void coroutine_resume(struct schedule *, int id);$/;"	p	signature:(struct schedule *, int id)
+coroutine_running	corotine/coroutine.cpp	/^coroutine_running(struct schedule * S) {$/;"	f	signature:(struct schedule * S)
+coroutine_running	corotine/coroutine.h	/^int coroutine_running(struct schedule *);$/;"	p	signature:(struct schedule *)
+coroutine_status	corotine/coroutine.cpp	/^coroutine_status(struct schedule * S, int id) {$/;"	f	signature:(struct schedule * S, int id)
+coroutine_status	corotine/coroutine.h	/^int coroutine_status(struct schedule *, int id);$/;"	p	signature:(struct schedule *, int id)
+coroutine_yield	corotine/coroutine.cpp	/^coroutine_yield(struct schedule * S) {$/;"	f	signature:(struct schedule * S)
+coroutine_yield	corotine/coroutine.h	/^void coroutine_yield(struct schedule *);$/;"	p	signature:(struct schedule *)
+ctx	corotine/coroutine.cpp	/^	ucontext_t ctx;$/;"	m	struct:coroutine	file:	access:public
+disconnect	hiredis/HiredisHelper.cpp	/^bool HiredisHelper::disconnect()$/;"	f	class:HiredisHelper	signature:()
+disconnect	hiredis/HiredisHelper.h	/^	bool disconnect();$/;"	p	class:HiredisHelper	access:public	signature:()
+disconnect_callback	hiredis/HiredisHelper.cpp	/^void HiredisHelper::disconnect_callback($/;"	f	class:HiredisHelper	signature:( const redisAsyncContext *redis_context, int status)
+disconnect_callback	hiredis/HiredisHelper.h	/^    static void disconnect_callback(const redisAsyncContext *redis_context,$/;"	p	class:HiredisHelper	access:private	signature:(const redisAsyncContext *redis_context, int status)
+event_proc	hiredis/HiredisHelper.cpp	/^void *HiredisHelper::event_proc()$/;"	f	class:HiredisHelper	signature:()
+event_proc	hiredis/HiredisHelper.h	/^    void *event_proc();$/;"	p	class:HiredisHelper	access:public	signature:()
+event_thread	hiredis/HiredisHelper.cpp	/^void *HiredisHelper::event_thread(void *data)$/;"	f	class:HiredisHelper	signature:(void *data)
+event_thread	hiredis/HiredisHelper.h	/^    static void *event_thread(void *data);$/;"	p	class:HiredisHelper	access:private	signature:(void *data)
+func	corotine/coroutine.cpp	/^	coroutine_func func;$/;"	m	struct:coroutine	file:	access:public
+get_key	main.cpp	/^get_key(struct schedule* S, void *ud){$/;"	f	signature:(struct schedule* S, void *ud)
+init	hiredis/HiredisHelper.cpp	/^bool HiredisHelper::init(const string &ip, int port, const string &auth_str, int timeout)$/;"	f	class:HiredisHelper	signature:(const string &ip, int port, const string &auth_str, int timeout)
+init	hiredis/HiredisHelper.h	/^	bool init(const string &ip, int port, const string &auth_str, int timeout = 200);$/;"	p	class:HiredisHelper	access:public	signature:(const string &ip, int port, const string &auth_str, int timeout = 200)
+main	corotine/coroutine.cpp	/^	ucontext_t main;$/;"	m	struct:schedule	file:	access:public
+main	main.cpp	/^int main(int argc, char** argv) {$/;"	f	signature:(int argc, char** argv)
+main.cpp	main.cpp	1;"	F
+mainfunc	corotine/coroutine.cpp	/^mainfunc(uint32_t low32, uint32_t hi32) {$/;"	f	file:	signature:(uint32_t low32, uint32_t hi32)
+nco	corotine/coroutine.cpp	/^	int nco;$/;"	m	struct:schedule	file:	access:public
+print_replay	main.cpp	/^void print_replay(redisReply* redis_reply)$/;"	f	signature:(redisReply* redis_reply)
+printnow	main.cpp	/^void printnow(){$/;"	f	signature:()
+redis_conn	main.cpp	/^static HiredisHelper redis_conn;$/;"	v	file:
+redis_del_cb	main.cpp	/^void redis_del_cb(struct redisAsyncContext* ctx, void* reply, void* pri_data)$/;"	f	signature:(struct redisAsyncContext* ctx, void* reply, void* pri_data)
+redis_setnx_cb	main.cpp	/^void redis_setnx_cb(struct redisAsyncContext* ctx, void* reply, void* pri_data)$/;"	f	signature:(struct redisAsyncContext* ctx, void* reply, void* pri_data)
+result_	main.cpp	/^    bool result_;$/;"	m	struct:args	file:	access:public
+running	corotine/coroutine.cpp	/^	int running;$/;"	m	struct:schedule	file:	access:public
+s_	main.cpp	/^    schedule* s_;$/;"	m	struct:args	file:	access:public
+sch	corotine/coroutine.cpp	/^	struct schedule * sch;$/;"	m	struct:coroutine	typeref:struct:coroutine::schedule	file:	access:public
+schedule	corotine/coroutine.cpp	/^struct schedule {$/;"	s	file:
+schedule::cap	corotine/coroutine.cpp	/^	int cap;$/;"	m	struct:schedule	file:	access:public
+schedule::co	corotine/coroutine.cpp	/^	struct coroutine **co;$/;"	m	struct:schedule	typeref:struct:schedule::coroutine	file:	access:public
+schedule::main	corotine/coroutine.cpp	/^	ucontext_t main;$/;"	m	struct:schedule	file:	access:public
+schedule::nco	corotine/coroutine.cpp	/^	int nco;$/;"	m	struct:schedule	file:	access:public
+schedule::running	corotine/coroutine.cpp	/^	int running;$/;"	m	struct:schedule	file:	access:public
+schedule::stack	corotine/coroutine.cpp	/^	char stack[STACK_SIZE];$/;"	m	struct:schedule	file:	access:public
+size	corotine/coroutine.cpp	/^	ptrdiff_t size;$/;"	m	struct:coroutine	file:	access:public
+stack	corotine/coroutine.cpp	/^	char *stack;$/;"	m	struct:coroutine	file:	access:public
+stack	corotine/coroutine.cpp	/^	char stack[STACK_SIZE];$/;"	m	struct:schedule	file:	access:public
+status	corotine/coroutine.cpp	/^	int status;$/;"	m	struct:coroutine	file:	access:public
+test	main.cpp	/^test(struct schedule *S, struct args& arg1) {$/;"	f	file:	signature:(struct schedule *S, struct args& arg1)
+ud	corotine/coroutine.cpp	/^	void *ud;$/;"	m	struct:coroutine	file:	access:public
+uninit	hiredis/HiredisHelper.cpp	/^bool HiredisHelper::uninit()$/;"	f	class:HiredisHelper	signature:()
+uninit	hiredis/HiredisHelper.h	/^	bool uninit();$/;"	p	class:HiredisHelper	access:public	signature:()
+~HiredisHelper	hiredis/HiredisHelper.h	/^	virtual ~HiredisHelper() {	}$/;"	f	class:HiredisHelper	access:public	signature:()
