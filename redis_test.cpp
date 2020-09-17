@@ -2,7 +2,7 @@
  * @Author: lionel
  * @Date: 2020-07-30 11:13:12
  * @LastEditors: lionelzhang
- * @LastEditTime: 2020-08-05 14:07:35
+ * @LastEditTime: 2020-09-17 14:40:19
  * @Description: 
  */ 
 #include <iostream>
@@ -82,9 +82,7 @@ int redis_test_init()
 {
    int ret = 0;
 #if 0
-    string redis_ip = "9.134.42.250";
-    int redis_port = 6380;
-    string redis_auth = "FvBKZ*3872wz";
+
 #else
     string redis_ip = "127.0.0.1";
     int redis_port = 6379;
