@@ -3,7 +3,7 @@
 #include <utility>
 #include <iostream>
 
-#define RANK_TREE_DEBUG 
+//#define RANK_TREE_DEBUG 
 
 #ifdef RANK_TREE_DEBUG
 #include "print_tree.h"
@@ -15,6 +15,14 @@ template <typename key_t, typename value_t, typename comp_t = std::less<key_t> >
 class rank_tree
 {
 public:
+#if 1
+    using value_type = std::pair<key_t, value_t>;
+    using pointer = value_type*;
+    using const_pointer = const value_type*;
+    using reference = value_type&;
+    using const_reference = const value_type&;
+    using rank_t = unsigned long long;
+#else
     typedef std::pair<key_t, value_t>   value_type;
     typedef value_type*                 pointer;
     typedef const value_type*           const_pointer;
@@ -22,7 +30,7 @@ public:
     typedef const value_type&           const_reference;
 
     typedef int rank_t;
-
+#endif
 public:
     
     struct node

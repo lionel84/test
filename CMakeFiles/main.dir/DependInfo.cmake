@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/data/code/main/socket_test.cpp" "/data/code/main/CMakeFiles/main.dir/socket_test.cpp.o"
   "/data/code/main/test_aes_cbc.cpp" "/data/code/main/CMakeFiles/main.dir/test_aes_cbc.cpp.o"
   "/data/code/main/test_bt.cpp" "/data/code/main/CMakeFiles/main.dir/test_bt.cpp.o"
+  "/data/code/main/test_comp.cpp" "/data/code/main/CMakeFiles/main.dir/test_comp.cpp.o"
   "/data/code/main/test_json_pack.cpp" "/data/code/main/CMakeFiles/main.dir/test_json_pack.cpp.o"
   "/data/code/main/test_map.cpp" "/data/code/main/CMakeFiles/main.dir/test_map.cpp.o"
   "/data/code/main/test_popen.cpp" "/data/code/main/CMakeFiles/main.dir/test_popen.cpp.o"

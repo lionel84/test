@@ -2,7 +2,7 @@
  * @Author: lionel
  * @Date: 2020-07-22 17:33:50
  * @LastEditors: lionelzhang
- * @LastEditTime: 2020-09-10 21:20:27
+ * @LastEditTime: 2020-10-20 10:07:51
  * @Description: main
  */ 
 
@@ -40,6 +40,7 @@ void test(EN_TEST value){
 
 #include "test_state_mechine.h"
 #include "test_test.h"
+#include "test_rbtree.h"
 map< int, int> map_;
 int main(int argc, char** argv) {
     int ret = 0;
@@ -47,7 +48,7 @@ int main(int argc, char** argv) {
     UNUSED(argv);
     UNUSED(ret);
 
-    nm_test::test();
+    nm_test_rbtree::test();
     //nm_test_aes_cbc::test();
 
     //nm_test_popen::test();

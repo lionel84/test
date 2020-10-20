@@ -2,7 +2,7 @@
  * @Author: lionel
  * @Date: 2020-07-30 11:14:47
  * @LastEditors: lionelzhang
- * @LastEditTime: 2020-08-21 17:16:59
+ * @LastEditTime: 2020-09-24 10:34:20
  * @Description: 
  */ 
 #ifndef __BASE_H__
@@ -13,6 +13,14 @@
 #include  <sys/time.h>
 #include <functional>
 #include <assert.h>
+#include <string.h>
+#include <vector>
+#include <map>
+#include <set>
+#include <iostream> 
+#include <unordered_map>
+#include <hash_map>
+using namespace std;
 #ifndef UNUSED
 #define UNUSED(x) ((void)x)
 #endif
@@ -44,4 +52,22 @@ void printnow();
         ASSERT(sentence);   \
         return;             \
     }while(0) 
+
+    template<typename T>
+    void printv(T& v){
+        for(auto i:v){
+            printf("%d ", i);
+        }
+        printf("\n");
+    }
+    /*
+    template<typename T>
+        void printv(T v){
+        for(auto i:v){
+            printf("%d ", i);
+        }
+        printf("\n");
+    }
+    */
 #endif
+

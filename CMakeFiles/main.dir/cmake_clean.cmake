@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/socket_test.cpp.o"
   "CMakeFiles/main.dir/test_aes_cbc.cpp.o"
   "CMakeFiles/main.dir/test_bt.cpp.o"
+  "CMakeFiles/main.dir/test_comp.cpp.o"
   "CMakeFiles/main.dir/test_json_pack.cpp.o"
   "CMakeFiles/main.dir/test_map.cpp.o"
   "CMakeFiles/main.dir/test_popen.cpp.o"

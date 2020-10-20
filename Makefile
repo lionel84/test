@@ -385,6 +385,33 @@ test_bt.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_bt.cpp.s
 .PHONY : test_bt.cpp.s
 
+test_comp.o: test_comp.cpp.o
+
+.PHONY : test_comp.o
+
+# target to build an object file
+test_comp.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_comp.cpp.o
+.PHONY : test_comp.cpp.o
+
+test_comp.i: test_comp.cpp.i
+
+.PHONY : test_comp.i
+
+# target to preprocess a source file
+test_comp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_comp.cpp.i
+.PHONY : test_comp.cpp.i
+
+test_comp.s: test_comp.cpp.s
+
+.PHONY : test_comp.s
+
+# target to generate assembly for a file
+test_comp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_comp.cpp.s
+.PHONY : test_comp.cpp.s
+
 test_json_pack.o: test_json_pack.cpp.o
 
 .PHONY : test_json_pack.o
@@ -636,6 +663,9 @@ help:
 	@echo "... test_bt.o"
 	@echo "... test_bt.i"
 	@echo "... test_bt.s"
+	@echo "... test_comp.o"
+	@echo "... test_comp.i"
+	@echo "... test_comp.s"
 	@echo "... test_json_pack.o"
 	@echo "... test_json_pack.i"
 	@echo "... test_json_pack.s"

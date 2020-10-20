@@ -42,6 +42,10 @@ CMakeFiles/main.dir/test_aes_cbc.cpp.o
  /data/code/main/test_aes_cbc.h
 CMakeFiles/main.dir/test_bt.cpp.o
  /data/code/main/test_bt.cpp
+CMakeFiles/main.dir/test_comp.cpp.o
+ /data/code/main/base.h
+ /data/code/main/test_comp.cpp
+ /data/code/main/test_comp.h
 CMakeFiles/main.dir/test_json_pack.cpp.o
  /data/code/main/base.h
  /data/code/main/rapidjson/allocators.h
@@ -81,6 +85,7 @@ CMakeFiles/main.dir/test_rbtree.cpp.o
  /data/code/main/base.h
  /data/code/main/print_tree.h
  /data/code/main/rank_tree.h
+ /data/code/main/test_comp.h
  /data/code/main/test_rbtree.cpp
 CMakeFiles/main.dir/test_state_mechine.cpp.o
  /data/code/main/test_state_mechine.cpp

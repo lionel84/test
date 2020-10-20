@@ -52,7 +52,11 @@
 			"numeric": "cpp",
 			"hashtable": "cpp",
 			"random": "cpp",
-			"regex": "cpp"
+			"regex": "cpp",
+			"hash_map": "cpp",
+			"cstring": "cpp",
+			"ctime": "cpp",
+			"bitset": "cpp"
 		}
 	}
 }
