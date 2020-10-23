@@ -1,8 +1,8 @@
 /*
  * @Author: lionel
  * @Date: 2020-07-22 18:30:59
- * @LastEditors: lionel
- * @LastEditTime: 2020-07-29 10:17:50
+ * @LastEditors: lionelzhang
+ * @LastEditTime: 2020-10-21 14:15:33
  * @Description: 
  */ 
 
@@ -66,6 +66,8 @@ bool HiredisHelper::Connect()
     {
         printf(": Async Connect redis failed.\n");
         return false;
+    }else{
+        printf(": Async Connect redis suc.\n");
     }
 
     if (_redis_async_context->err)
@@ -90,7 +92,7 @@ bool HiredisHelper::Connect()
     {
         ExecutevAsyncCmd(nullptr, nullptr, "AUTH %s", _authstring.c_str());
     }
-/*
+
     // 创建事件处理线程
     int ret = pthread_create(&_event_thread, 0, &HiredisHelper::event_thread, this);
     if (ret != 0)
@@ -99,7 +101,7 @@ bool HiredisHelper::Connect()
         disconnect();
         return false;
     }
-    */
+    
     // 启动事件线程
     sem_post(&_event_sem);
     

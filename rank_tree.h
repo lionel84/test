@@ -1,45 +1,59 @@
+// 待排数据使用shared_ptr传入 内部node使用std::allocator申请释放
+// 
 #ifndef _RANK_TREE_H_
 #define _RANK_TREE_H_
-#include <utility>
-#include <iostream>
 
 //#define RANK_TREE_DEBUG 
 
 #ifdef RANK_TREE_DEBUG
 #include "print_tree.h"
 #endif
+#include <memory>
+#include <unordered_map>
 
-namespace nm_rank_tree{
+namespace nm_rank_tree {
 
-template <typename key_t, typename value_t, typename comp_t = std::less<key_t> >
-class rank_tree
+template<typename rank_data_value_t>
+class KEY_COMP
 {
-public:
-#if 1
-    using value_type = std::pair<key_t, value_t>;
-    using pointer = value_type*;
-    using const_pointer = const value_type*;
-    using reference = value_type&;
-    using const_reference = const value_type&;
-    using rank_t = unsigned long long;
-#else
-    typedef std::pair<key_t, value_t>   value_type;
-    typedef value_type*                 pointer;
-    typedef const value_type*           const_pointer;
-    typedef value_type&                 reference;
-    typedef const value_type&           const_reference;
-
-    typedef int rank_t;
-#endif
-public:
+    using comp_function_t = std::function<bool (const rank_data_value_t& l, const rank_data_value_t& r) >;
+public:    
+    KEY_COMP(comp_function_t comp, bool descending_order = true):_comp_function(comp), is_descending_order(descending_order) 
+    {
     
+    }
+    bool operator()(const rank_data_value_t& a, const rank_data_value_t& b) const
+    {
+        bool result;
+        result = _comp_function(a, b);
+        if(is_descending_order){
+            return !result;
+        }
+        return result;
+    }
+private:
+    bool is_descending_order;
+    comp_function_t _comp_function;
+};
+
+template <typename rank_data_key_t, typename rank_data_value_t, typename comp_t = std::less<rank_data_value_t>  > 
+class rank_tree {
+public:
+    using rank_data_type = std::shared_ptr<rank_data_value_t>;
+    using pointer = rank_data_type;
+    using const_pointer = const rank_data_type;
+    using reference = rank_data_type&;
+    using const_reference = const rank_data_type&;
+    using rank_t = int64_t;
+
+public:
+    // node类型
     struct node
     {
         public:
-        //typedef node* pointer_t;
-        using pointer_t = node* ; //std::shared_ptr<node>;
-        static const int red = 0;
-        static const int black = 1;
+        using pointer_t = node* ; 
+        static const uint32_t red = 0;
+        static const uint32_t black = 1;
         node():parent(nullptr), size(1), color(red) 
         {
             children[0] = nullptr;
@@ -49,8 +63,8 @@ public:
         pointer_t children[2];
         pointer_t parent;
         rank_t size;
-        int color;
-        value_type value;
+        uint32_t color;
+        rank_data_type value;
         void construct()
         {
             new(this) node;
@@ -66,7 +80,7 @@ public:
             return n && n->color == black;
         }
 
-        static int dir(pointer_t p, pointer_t c)
+        static uint32_t dir(pointer_t p, pointer_t c)
         {
             return c == p->children[1];
         }
@@ -94,9 +108,9 @@ public:
             }
         }
 
-        static pointer_t rotate(pointer_t h, int dir)
+        static pointer_t rotate(pointer_t h, uint32_t dir)
         {
-            int opp_dir = !dir;
+            uint32_t opp_dir = !dir;
             pointer_t x = h->children[opp_dir];
             h->children[opp_dir] = x->children[dir];
             x->children[dir] = h;
@@ -104,7 +118,7 @@ public:
             pointer_t parent = h->parent;
             if (parent)
             {
-                int pdir = node::dir(parent, h);
+                uint32_t pdir = node::dir(parent, h);
                 parent->children[pdir] = x;
             }
             x->parent = parent;
@@ -136,7 +150,7 @@ public:
             h->children[1]->color = !h->children[1]->color;
         }
 
-        static pointer_t spine(pointer_t h, int dir)
+        static pointer_t spine(pointer_t h, uint32_t dir)
         {
             if (!h)
             {
@@ -149,9 +163,9 @@ public:
             return h;
         }
 
-        static pointer_t move_pointer(pointer_t h, int dir)
+        static pointer_t move_pointer(pointer_t h, uint32_t dir)
         {
-            int opp_dir = !dir;
+            uint32_t opp_dir = !dir;
             if (!h)
             {
                 return h;
@@ -175,14 +189,10 @@ public:
         }
     };
 
+    using data_allocator_t = std::allocator<node>;
+    using node_pointer_t = node* ; 
 
-    //typedef std::allocator<node>  data_allocator;
-    //typedef typename data_allocator::template rebind<node>::other node_allocator_t;
-    //typedef typename node_allocator_t::pointer node_pointer_t;
-    //typedef typename node_allocator_t::const_pointer const_node_pointer_t;
-    using data_allocator = std::allocator<node>;
-    using node_pointer_t = node* ; //std::shared_ptr<node>;
-    using const_node_pointer_t = const node*; //std::shared_ptr<const node>;
+    using map_t = std::unordered_map<rank_data_key_t, node_pointer_t>;
 
     static node_pointer_t minimum(node_pointer_t h)
     {
@@ -258,8 +268,7 @@ public:
 
     }
 
-    rank_tree(comp_t comp):m_root(nullptr), m_comp(comp)
-    {
+    rank_tree(comp_t comp): m_root(nullptr), m_comp(comp) {
 
     }
 
@@ -293,17 +302,45 @@ public:
         return iterator(p);
     }
 
+    iterator find_by_key(rank_data_key_t key) const
+    {
+        auto p = m_data.find(key);
+        return p != m_data.end()?iterator(p->second): iterator();
+    }
+
+    rank_t rank_by_key(rank_data_key_t key) const
+    {
+        iterator it = find_by_key(key);
+        if(it.m_p){
+            return rank(it);
+        }
+        return -1;
+    }
+
     iterator insert(const_reference v)
     {
+        auto it = m_data.find(v->key());
+        if(it != m_data.end()){
+            return it->second;
+        }
+        
         node_pointer_t p = __insert(v);
-        return iterator(p);
+        if(p != nullptr){
+            m_data.insert(std::make_pair(v->key(), p));
+        }
+        return iterator(p); 
     }
 
     void erase(iterator i)
     {
-        return __erase(i.m_p);
+        if(i.m_p){
+            const auto& it = m_data.find(i.m_p->value->key());
+            if(it != m_data.end()){
+                m_data.erase(it);
+            }
+            __erase(i.m_p);
+        }
     }
-
 
     iterator lower_bound(const key_t& k)
     {
@@ -320,7 +357,6 @@ public:
         return m_root ? m_root->size : 0;
     }
 
-    // TODO cache iterator begin.
     iterator begin()
     {
         return iterator(minimum(m_root));
@@ -340,13 +376,11 @@ private:
 
     node_pointer_t __lower_bound(const key_t& k, comp_t comp)
     {
-        // invariant left < key <= right
-        // left <= root <= right
         node_pointer_t n = m_root;
         node_pointer_t p = nullptr;
         while (n)
         {
-            if (comp(n->value.first, k))
+            if(comp(n->value.second, k))
                 // k > root, so root as left, turn right 
                 n = n->children[1];
             else
@@ -366,7 +400,7 @@ private:
         node_pointer_t p = nullptr;
         while (n)
         {
-            if (comp(k, n->value.first))
+            if(comp(k, n->value))
             {
                 p = n;
                 n = n->children[0];
@@ -431,15 +465,7 @@ private:
 
     node_pointer_t __insert(const_reference v)
     {
-        #ifdef RANK_TREE_DEBUG
-        printf("begin insert %d\n", v.first);
-        
-        nm_print_tree::tree_print<node> tprint(
-            [](node* n){return n->children[0];},
-            [](node* n){return n->children[1];}, 
-            [](node* n){return n->value.first;},
-            [](node* n){return n->color == 0;});
-        #endif
+        //node_pointer_t n = std::make_shared<node>();
         node_pointer_t n = __allocate_node();
         n->value = v;
         if (!m_root)
@@ -452,35 +478,28 @@ private:
         node_pointer_t p = nullptr;
         while (h)
         {
-            int dir = !m_comp(v.first, h->value.first);
+            uint32_t dir = !m_comp(*v, *h->value);
             p = h;
             h = h->children[dir];
         }
-        int dir = !m_comp(v.first, p->value.first);
-        #ifdef RANK_TREE_DEBUG
-        tprint.print(m_root);
-        #endif
+        uint32_t dir = !m_comp(*v, *p->value);
+
         p->children[dir] = n;
         n->parent = p;
-        #ifdef RANK_TREE_DEBUG
-        tprint.print(m_root);
-        #endif
+
         node_pointer_t saved_n = n;
         while (node::is_red(p))
         {
             node::update_size(p);
             node_pointer_t gp = p->parent;
             node::update_size(gp);
-            int pdir = node::dir(gp, p);
+            uint32_t pdir = node::dir(gp, p);
             node_pointer_t u = gp->children[!pdir];
             if (!node::is_red(u))
             {
                 if (node::dir(p, n) != pdir)
                 {
                     p = node::rotate(p, pdir);
-                    #ifdef RANK_TREE_DEBUG
-                    tprint.print(m_root);
-                    #endif
                 }
                 gp = node::rotate(gp, !pdir);
                 
@@ -488,37 +507,19 @@ private:
                 {
                     m_root = gp;
                 }
-                #ifdef RANK_TREE_DEBUG
-                tprint.print(m_root);
-                #endif
                 break;
             }
             node::color_flip(gp);
             n = gp;
             p = n->parent;
-            #ifdef RANK_TREE_DEBUG
-            tprint.print(m_root);
-            #endif
         }
         m_root->color = node::black;
-        #ifdef RANK_TREE_DEBUG
-        tprint.print(m_root);
-        #endif
         node::update_size_to_root(p);
         return saved_n;
     }
 
     void __erase(node_pointer_t n)
     {
-        #ifdef RANK_TREE_DEBUG
-        printf("begin __erase %d\n", n->value);
-        nm_print_tree::tree_print<node> tprint(
-            [](node* n){return n->children[0];},
-            [](node* n){return n->children[1];}, 
-            [](node* n){return n->value.first;},
-            [](node* n){return n->color == 0;});
-        #endif
-        //assert_retnone(m_root);
         if (n->children[0] && n->children[1])
         {
             node_pointer_t successor = next(n);
@@ -584,9 +585,6 @@ private:
             }
         }
 
-        #ifdef RANK_TREE_DEBUG
-        tprint.print(m_root);
-        #endif
         node_pointer_t c = NULL;
         node_pointer_t p = n->parent;
         c = n->children[0]?n->children[0]: n->children[1];
@@ -610,7 +608,7 @@ private:
 
         for (;!node::is_red(n) && p; n = p, p = n->parent){
             node::update_size(p);
-            int dir = node::dir(p, n);
+            uint32_t dir = node::dir(p, n);
             node_pointer_t sibling = p->children[!dir];
             if (node::is_red(sibling))
             {
@@ -660,9 +658,6 @@ finished:
         }
         node::update_size_to_root(p);
         __deallocate_node(saved_n);
-        #ifdef RANK_TREE_DEBUG
-        tprint.print(m_root);
-        #endif
     }
 
 
@@ -670,15 +665,15 @@ finished:
 
     node_pointer_t __allocate_node()
     {
-        //node_pointer_t n = m_alloc.allocate(1);
-        node_pointer_t n = m_alloc.allocate(1); //std::make_shared<node>();
+        //node_pointer_t n = std::make_shared<node>();
+        node_pointer_t n = m_alloc.allocate(1);
         n->construct();
         return n;
     }
     void __deallocate_node(node_pointer_t n)
     {
         n->~node();
-        m_alloc.deallocate(n, sizeof(node));
+        m_alloc.deallocate(n, 1);
     }
 
     void clear(node_pointer_t n)
@@ -696,9 +691,10 @@ finished:
     }
 public:
     node_pointer_t m_root;
-    data_allocator m_alloc;
+    data_allocator_t m_alloc;
     comp_t  m_comp;
+    map_t m_data;
 };
-
+void test(int count = 100000);
 }
 #endif //_RANK_TREE_H_

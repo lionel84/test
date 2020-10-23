@@ -2,7 +2,7 @@
  * @Auth: lionelzhang
  * @Date: 2020-08-27 11:23:46
  * @LastEditors: lionelzhang
- * @LastEditTime: 2020-09-02 14:39:00
+ * @LastEditTime: 2020-10-22 16:55:51
  * @Description: 
  */
 #include <sys/socket.h>
@@ -21,6 +21,7 @@
 #include <curl/curl.h>
 //#include <arpa.inet.h>
 namespace nm_socket_test{
+  /*
     static void setnonblocking(int sockfd)
 {
     int flag = 0; //fcntl(sockfd, F_GETFL, 0);
@@ -34,6 +35,7 @@ namespace nm_socket_test{
         //Perror("fcntl F_SETFL fail");
     }
 } 
+*/
 static int wait_on_socket(curl_socket_t sockfd, int for_recv, long timeout_ms)
 {
   struct timeval tv;
@@ -94,7 +96,7 @@ void test_send_curl(void)
     if(CURLE_OK != res)
     {
       printf("Error: %s\n", strerror(res));
-      return 1;
+      return ;
     }
 
     /* Extract the socket from the curl handle - we'll need it for waiting.
@@ -106,7 +108,7 @@ void test_send_curl(void)
     if(CURLE_OK != res)
     {
       printf("Error: %s\n", curl_easy_strerror(res));
-      return 1;
+      return ;
     }
 
     sockfd = sockextr;
@@ -115,7 +117,7 @@ void test_send_curl(void)
     if(!wait_on_socket(sockfd, 0, 60000L))
     {
       printf("Error: timeout.\n");
-      return 1;
+      return ;
     }
 
     puts("Sending request.");
@@ -126,7 +128,7 @@ void test_send_curl(void)
     if(CURLE_OK != res)
     {
       printf("Error: %s\n", curl_easy_strerror(res));
-      return 1;
+      return ;
     }
     puts("Reading response.");
 
@@ -153,11 +155,11 @@ void test_send_curl(void)
     /* always cleanup */
     curl_easy_cleanup(curl);
   }
-  return 0;
+  return ;
 }
     void send_test()
     {
-        int32_t		nSockHandle;
+        int		nSockHandle;
         nSockHandle = socket(AF_INET, SOCK_DGRAM, 0);
         struct sockaddr_in net_addr;
         memset(&net_addr, 0, sizeof(net_addr));
@@ -171,7 +173,7 @@ void test_send_curl(void)
         printf("send size: %d\n", ssize);
 
         char recv_buf[1024];
-        int net_addr_len = sizeof(net_addr);
+        socklen_t net_addr_len = sizeof(net_addr);
         int rsize = 0;
         while(true){
             rsize = recvfrom(nSockHandle, recv_buf, 1024, 0, (struct sockaddr*)&net_addr, &net_addr_len);
@@ -203,7 +205,7 @@ void test_send_curl(void)
             static char recv_buf[1024];
             struct sockaddr_in net_addr;
             
-            int net_addr_len = sizeof(net_addr);
+            socklen_t net_addr_len = sizeof(net_addr);
             int rsize = recvfrom(nSockHandle, recv_buf, 1024, 0,  (struct sockaddr*)&net_addr, &net_addr_len);
             printf("rsize: %d\n", rsize);
             printf("net_addr sin_family: %d\n", ntohs(net_addr.sin_family));

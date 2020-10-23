@@ -2,7 +2,7 @@
  * @Author: lionel
  * @Date: 2020-07-30 11:14:47
  * @LastEditors: lionelzhang
- * @LastEditTime: 2020-09-24 10:34:20
+ * @LastEditTime: 2020-10-22 15:54:29
  * @Description: 
  */ 
 #ifndef __BASE_H__
@@ -19,7 +19,8 @@
 #include <set>
 #include <iostream> 
 #include <unordered_map>
-#include <hash_map>
+//#include <ext/hash_map>
+//using namespace __gnu_cxx;
 using namespace std;
 #ifndef UNUSED
 #define UNUSED(x) ((void)x)
@@ -33,14 +34,14 @@ struct args {
 };
 #pragma pack()
 
-void printnow();
+void printnow(string desc = "");
 #define ASSERT(sentence)\
     do{\
         assert((sentence));\
     }while(0)
     
-#define assert_retval(sentence, val)\
-    do{                     \ 
+#define assert_retval(sentence, val) \
+    do{                     \
         if (sentence) break;\
         ASSERT(sentence);   \
         return val;         \

@@ -2,97 +2,110 @@
  * @Auth: lionelzhang
  * @Date: 2020-08-18 20:38:33
  * @LastEditors: lionelzhang
- * @LastEditTime: 2020-10-20 15:08:31
+ * @LastEditTime: 2020-10-22 15:14:05
  * @Description: 
  */
 
 #include "print_tree.h"
-#include "rank_tree.h"
+//#include "rank_tree.h"
 #include "base.h"
 #include "test_comp.h"
+#include "rank_tree_v1.h"
 namespace nm_test_rbtree{
 
-using namespace nm_rank_tree;
+//using namespace nm_rank_tree;
 using namespace nm_print_tree;
+using namespace nm_rank_tree_v1;
 
 // 定义数据类型
-struct KEY_TYPE{
+using rank_data_key_t = uint64_t;
+struct RANK_DATA
+{
 public:
-    KEY_TYPE(){}
-    KEY_TYPE(int32_t score, int32_t ts):_value(score), _ts(ts){}
-    int32_t _value;
+    RANK_DATA(){}
+    RANK_DATA(rank_data_key_t uid, int32_t score, int32_t ts): _uid(uid), _score(score), _ts(ts){}
+
+    rank_data_key_t key() const{
+        return _uid;
+    }
+//private:
+    rank_data_key_t _uid;
+    int32_t _score;
     int32_t _ts;
+    
 };
+using rank_data_value_t = RANK_DATA;
+using comp_t = KEY_COMP<rank_data_value_t>; 
 
-struct VALUE_TYPE{
-public:
-    VALUE_TYPE(){}
-    VALUE_TYPE(uint64_t id):_id(id){} 
-    uint64_t _id;
-};
+// 定义排序树类型
 
+using tree_t = rank_tree<rank_data_key_t, rank_data_value_t, comp_t > ;
 // 定义比较函数
-static bool comp(const KEY_TYPE& a, const KEY_TYPE& b) {
-    if(a._value < b._value)return true;
-    if(a._value == b._value){
+static bool comp(const rank_data_value_t& a, const rank_data_value_t& b) {
+    if(a._score < b._score)return true;
+    if(a._score == b._score){
         return a._ts > b._ts;
     }
     return false;
 }
-using KEY_COMP_T = nm_comp::KEY_COMP<KEY_TYPE>;
-KEY_COMP_T descending_order(comp, true);
-KEY_COMP_T ascending_order(comp, false);
 
-// 定义排序树类型
-using tree_t = rank_tree<KEY_TYPE, VALUE_TYPE, KEY_COMP_T>;
-using map_t = std::unordered_map<uint64_t, tree_t::iterator>;
-
-void print_by_uid(tree_t& tree, map_t& uids, uint64_t uid){
-    auto it1 = uids.find(uid);
-    if(it1 != uids.end()){
-        auto it = it1->second;
-        uint64_t rank = tree.rank(it);
-        cout<<"rank: "<<rank<<" id: "<<it->second._id<<" value: "<<it->first._value<<" ts: "<<it->first._ts<<endl;
-    }
-    else{
-        cout<<"not found by id: "<<uid<<endl;
-    }
-}
-void print_by_rank(tree_t& tree, uint64_t rank){
-    auto it = tree.find_by_rank(rank);
-    if(it != tree.end()){
-        cout<<"rank: "<<rank<<" id: "<<it->second._id<<" value: "<<it->first._value<<" ts: "<<it->first._ts<<endl;
-    }
-    else{
-        cout<<"not found by rank: "<<rank<<endl;
-    }
-}
 void test()
 {
     srand(time(NULL));
-    printnow();
-    
-    map_t uids;
-    tree_t rank_tree(descending_order);
-    
-    for(int i = 1; i<= 20; i++){
-        auto it = rank_tree.insert(std::pair<KEY_TYPE, VALUE_TYPE>(KEY_TYPE(i, time(NULL)), VALUE_TYPE(i)));
-        uids[i] = it;
-    }
-
     using tree_node_t = tree_t::node;
+    
     tree_print<tree_node_t > tprint(
         [](tree_node_t* n){return n->children[0];},
         [](tree_node_t* n){return n->children[1];}, 
-        [](tree_node_t* n){return n->value.first._value;},
+        [](tree_node_t* n){return n->value._score;},
         [](tree_node_t* n){return n->color == 0;});
-    tprint.print(rank_tree.m_root);
-
+        
+    printnow();
+    comp_t mycomp(comp, true/*true|false default: true(降序)*/);
+    tree_t rank_tree(mycomp);
+    const int test_size = 100000;
+    cout<<"排行榜测试数量："<<test_size<<endl;
+    // insert
+    for(int i = 1; i<= test_size; i++){
+        auto it = rank_tree.insert(rank_data_value_t(i, /*rand()%100*/i, time(NULL))); 
+        //auto it = rank_tree.insert(std::make_pair(i, rank_data_value_t(i, /*rand()%100*/i, time(NULL)))); 
+    }
+    printnow("插入");
+    printf("rank_tree size: %d\n", rank_tree.size());
+   // tprint.print(rank_tree.m_root);
+    // chaxun
     
-    for(int i = 0; i< 10; i++)
-        print_by_rank(rank_tree, i);
-    for(int i = 0; i< 10; i++)
-        print_by_uid(rank_tree, uids, i);
+    for(int i = 1; i<= test_size+100; i++){
+        auto it = rank_tree.find_by_rank(i); 
+    }
+    printnow("根据排名查询");
+    // chaxun
+    
+    for(int i = 1; i<= test_size+100; i++){
+        auto it = rank_tree.find_by_key(i); 
+        //cout<<"rank: "<<rank_tree.rank(it)<<" id: "<<it->second._uid<<" value: "<<it->second._score<<" ts: "<<it->second._ts<<endl;
+    }
+    printnow("根据uid查询数据");
+
+    for(uint64_t i = 1; i<= test_size+100; i++){
+        auto it = rank_tree.rank_by_key(i); 
+        //cout<<"rank: "<<rank_tree.rank(it)<<" id: "<<it->second._uid<<" value: "<<it->second._score<<" ts: "<<it->second._ts<<endl;
+    }
+    printnow("根据uid查询排名");
+    // delete
+    for(int i = 1; i<= test_size+100; i++){
+        auto it = rank_tree.find_by_key(i); 
+        if(it != rank_tree.end())
+            rank_tree.erase(it);
+    }
+    printnow("删除");
+    printf("rank_tree size: %d\n", rank_tree.size());
+/*
+
+    tprint.print(rank_tree.m_root);
+*/
+    
+
     /*
     auto it = rank_tree.find_by_rank(50);
     if(it != rank_tree.end())

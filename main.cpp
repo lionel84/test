@@ -2,7 +2,7 @@
  * @Author: lionel
  * @Date: 2020-07-22 17:33:50
  * @LastEditors: lionelzhang
- * @LastEditTime: 2020-10-20 10:07:51
+ * @LastEditTime: 2020-10-23 10:06:35
  * @Description: main
  */ 
 
@@ -41,14 +41,39 @@ void test(EN_TEST value){
 #include "test_state_mechine.h"
 #include "test_test.h"
 #include "test_rbtree.h"
+#include "redis_test.h"
+
+#include "rank_tree.h"
+#include "rank_tree_v1.h"
+#include "rank_tree_v3.h"
+#include "test_auto_ptr.h"
 map< int, int> map_;
+class TEST_CLASS{
+public:
+    TEST_CLASS(){
+        cout<<"gouzao"<<endl;
+    }
+    ~TEST_CLASS(){
+        cout<<"xigou"<<endl;
+    }
+public:
+    int val(){
+        return _val;
+    }
+    int _val;
+};
 int main(int argc, char** argv) {
     int ret = 0;
     UNUSED(argc);
     UNUSED(argv);
     UNUSED(ret);
 
-    nm_test_rbtree::test();
+    //redis_test();
+    
+    nm_rank_tree_v1::test(1000000);
+    nm_rank_tree::test(1000000);
+    nm_rank_tree_v3::test(1000000);
+    //nm_ptr::test();
     //nm_test_aes_cbc::test();
 
     //nm_test_popen::test();

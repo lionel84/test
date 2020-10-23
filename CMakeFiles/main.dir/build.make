@@ -129,9 +129,48 @@ CMakeFiles/main.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/main.cpp.s"
 	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/code/main/main.cpp -o CMakeFiles/main.dir/main.cpp.s
 
+CMakeFiles/main.dir/rank_tree.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/rank_tree.cpp.o: rank_tree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/rank_tree.cpp.o"
+	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/rank_tree.cpp.o -c /data/code/main/rank_tree.cpp
+
+CMakeFiles/main.dir/rank_tree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/rank_tree.cpp.i"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/code/main/rank_tree.cpp > CMakeFiles/main.dir/rank_tree.cpp.i
+
+CMakeFiles/main.dir/rank_tree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/rank_tree.cpp.s"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/code/main/rank_tree.cpp -o CMakeFiles/main.dir/rank_tree.cpp.s
+
+CMakeFiles/main.dir/rank_tree_v1.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/rank_tree_v1.cpp.o: rank_tree_v1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/rank_tree_v1.cpp.o"
+	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/rank_tree_v1.cpp.o -c /data/code/main/rank_tree_v1.cpp
+
+CMakeFiles/main.dir/rank_tree_v1.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/rank_tree_v1.cpp.i"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/code/main/rank_tree_v1.cpp > CMakeFiles/main.dir/rank_tree_v1.cpp.i
+
+CMakeFiles/main.dir/rank_tree_v1.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/rank_tree_v1.cpp.s"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/code/main/rank_tree_v1.cpp -o CMakeFiles/main.dir/rank_tree_v1.cpp.s
+
+CMakeFiles/main.dir/rank_tree_v3.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/rank_tree_v3.cpp.o: rank_tree_v3.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/rank_tree_v3.cpp.o"
+	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/rank_tree_v3.cpp.o -c /data/code/main/rank_tree_v3.cpp
+
+CMakeFiles/main.dir/rank_tree_v3.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/rank_tree_v3.cpp.i"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/code/main/rank_tree_v3.cpp > CMakeFiles/main.dir/rank_tree_v3.cpp.i
+
+CMakeFiles/main.dir/rank_tree_v3.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/rank_tree_v3.cpp.s"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/code/main/rank_tree_v3.cpp -o CMakeFiles/main.dir/rank_tree_v3.cpp.s
+
 CMakeFiles/main.dir/redis_test.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/redis_test.cpp.o: redis_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/redis_test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/redis_test.cpp.o"
 	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/redis_test.cpp.o -c /data/code/main/redis_test.cpp
 
 CMakeFiles/main.dir/redis_test.cpp.i: cmake_force
@@ -144,7 +183,7 @@ CMakeFiles/main.dir/redis_test.cpp.s: cmake_force
 
 CMakeFiles/main.dir/socket_test.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/socket_test.cpp.o: socket_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/socket_test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/socket_test.cpp.o"
 	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/socket_test.cpp.o -c /data/code/main/socket_test.cpp
 
 CMakeFiles/main.dir/socket_test.cpp.i: cmake_force
@@ -157,7 +196,7 @@ CMakeFiles/main.dir/socket_test.cpp.s: cmake_force
 
 CMakeFiles/main.dir/test_aes_cbc.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/test_aes_cbc.cpp.o: test_aes_cbc.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/test_aes_cbc.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/main.dir/test_aes_cbc.cpp.o"
 	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/test_aes_cbc.cpp.o -c /data/code/main/test_aes_cbc.cpp
 
 CMakeFiles/main.dir/test_aes_cbc.cpp.i: cmake_force
@@ -168,9 +207,22 @@ CMakeFiles/main.dir/test_aes_cbc.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/test_aes_cbc.cpp.s"
 	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/code/main/test_aes_cbc.cpp -o CMakeFiles/main.dir/test_aes_cbc.cpp.s
 
+CMakeFiles/main.dir/test_auto_ptr.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/test_auto_ptr.cpp.o: test_auto_ptr.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/main.dir/test_auto_ptr.cpp.o"
+	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/test_auto_ptr.cpp.o -c /data/code/main/test_auto_ptr.cpp
+
+CMakeFiles/main.dir/test_auto_ptr.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/test_auto_ptr.cpp.i"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/code/main/test_auto_ptr.cpp > CMakeFiles/main.dir/test_auto_ptr.cpp.i
+
+CMakeFiles/main.dir/test_auto_ptr.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/test_auto_ptr.cpp.s"
+	/usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/code/main/test_auto_ptr.cpp -o CMakeFiles/main.dir/test_auto_ptr.cpp.s
+
 CMakeFiles/main.dir/test_bt.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/test_bt.cpp.o: test_bt.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/test_bt.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/main.dir/test_bt.cpp.o"
 	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/test_bt.cpp.o -c /data/code/main/test_bt.cpp
 
 CMakeFiles/main.dir/test_bt.cpp.i: cmake_force
@@ -183,7 +235,7 @@ CMakeFiles/main.dir/test_bt.cpp.s: cmake_force
 
 CMakeFiles/main.dir/test_comp.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/test_comp.cpp.o: test_comp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/test_comp.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/main.dir/test_comp.cpp.o"
 	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/test_comp.cpp.o -c /data/code/main/test_comp.cpp
 
 CMakeFiles/main.dir/test_comp.cpp.i: cmake_force
@@ -196,7 +248,7 @@ CMakeFiles/main.dir/test_comp.cpp.s: cmake_force
 
 CMakeFiles/main.dir/test_json_pack.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/test_json_pack.cpp.o: test_json_pack.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/main.dir/test_json_pack.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/main.dir/test_json_pack.cpp.o"
 	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/test_json_pack.cpp.o -c /data/code/main/test_json_pack.cpp
 
 CMakeFiles/main.dir/test_json_pack.cpp.i: cmake_force
@@ -209,7 +261,7 @@ CMakeFiles/main.dir/test_json_pack.cpp.s: cmake_force
 
 CMakeFiles/main.dir/test_map.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/test_map.cpp.o: test_map.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/main.dir/test_map.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/main.dir/test_map.cpp.o"
 	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/test_map.cpp.o -c /data/code/main/test_map.cpp
 
 CMakeFiles/main.dir/test_map.cpp.i: cmake_force
@@ -222,7 +274,7 @@ CMakeFiles/main.dir/test_map.cpp.s: cmake_force
 
 CMakeFiles/main.dir/test_popen.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/test_popen.cpp.o: test_popen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/main.dir/test_popen.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/main.dir/test_popen.cpp.o"
 	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/test_popen.cpp.o -c /data/code/main/test_popen.cpp
 
 CMakeFiles/main.dir/test_popen.cpp.i: cmake_force
@@ -235,7 +287,7 @@ CMakeFiles/main.dir/test_popen.cpp.s: cmake_force
 
 CMakeFiles/main.dir/test_rbtree.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/test_rbtree.cpp.o: test_rbtree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/main.dir/test_rbtree.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/main.dir/test_rbtree.cpp.o"
 	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/test_rbtree.cpp.o -c /data/code/main/test_rbtree.cpp
 
 CMakeFiles/main.dir/test_rbtree.cpp.i: cmake_force
@@ -248,7 +300,7 @@ CMakeFiles/main.dir/test_rbtree.cpp.s: cmake_force
 
 CMakeFiles/main.dir/test_state_mechine.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/test_state_mechine.cpp.o: test_state_mechine.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/main.dir/test_state_mechine.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/main.dir/test_state_mechine.cpp.o"
 	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/test_state_mechine.cpp.o -c /data/code/main/test_state_mechine.cpp
 
 CMakeFiles/main.dir/test_state_mechine.cpp.i: cmake_force
@@ -261,7 +313,7 @@ CMakeFiles/main.dir/test_state_mechine.cpp.s: cmake_force
 
 CMakeFiles/main.dir/test_template.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/test_template.cpp.o: test_template.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/main.dir/test_template.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/main.dir/test_template.cpp.o"
 	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/test_template.cpp.o -c /data/code/main/test_template.cpp
 
 CMakeFiles/main.dir/test_template.cpp.i: cmake_force
@@ -274,7 +326,7 @@ CMakeFiles/main.dir/test_template.cpp.s: cmake_force
 
 CMakeFiles/main.dir/test_test.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/test_test.cpp.o: test_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/main.dir/test_test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/main.dir/test_test.cpp.o"
 	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/test_test.cpp.o -c /data/code/main/test_test.cpp
 
 CMakeFiles/main.dir/test_test.cpp.i: cmake_force
@@ -287,7 +339,7 @@ CMakeFiles/main.dir/test_test.cpp.s: cmake_force
 
 CMakeFiles/main.dir/test_tree.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/test_tree.cpp.o: test_tree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/main.dir/test_tree.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/main.dir/test_tree.cpp.o"
 	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/test_tree.cpp.o -c /data/code/main/test_tree.cpp
 
 CMakeFiles/main.dir/test_tree.cpp.i: cmake_force
@@ -304,9 +356,13 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/cache.cpp.o" \
 "CMakeFiles/main.dir/coroutine_test.cpp.o" \
 "CMakeFiles/main.dir/main.cpp.o" \
+"CMakeFiles/main.dir/rank_tree.cpp.o" \
+"CMakeFiles/main.dir/rank_tree_v1.cpp.o" \
+"CMakeFiles/main.dir/rank_tree_v3.cpp.o" \
 "CMakeFiles/main.dir/redis_test.cpp.o" \
 "CMakeFiles/main.dir/socket_test.cpp.o" \
 "CMakeFiles/main.dir/test_aes_cbc.cpp.o" \
+"CMakeFiles/main.dir/test_auto_ptr.cpp.o" \
 "CMakeFiles/main.dir/test_bt.cpp.o" \
 "CMakeFiles/main.dir/test_comp.cpp.o" \
 "CMakeFiles/main.dir/test_json_pack.cpp.o" \
@@ -325,9 +381,13 @@ main: CMakeFiles/main.dir/base.cpp.o
 main: CMakeFiles/main.dir/cache.cpp.o
 main: CMakeFiles/main.dir/coroutine_test.cpp.o
 main: CMakeFiles/main.dir/main.cpp.o
+main: CMakeFiles/main.dir/rank_tree.cpp.o
+main: CMakeFiles/main.dir/rank_tree_v1.cpp.o
+main: CMakeFiles/main.dir/rank_tree_v3.cpp.o
 main: CMakeFiles/main.dir/redis_test.cpp.o
 main: CMakeFiles/main.dir/socket_test.cpp.o
 main: CMakeFiles/main.dir/test_aes_cbc.cpp.o
+main: CMakeFiles/main.dir/test_auto_ptr.cpp.o
 main: CMakeFiles/main.dir/test_bt.cpp.o
 main: CMakeFiles/main.dir/test_comp.cpp.o
 main: CMakeFiles/main.dir/test_json_pack.cpp.o
@@ -342,7 +402,7 @@ main: CMakeFiles/main.dir/build.make
 main: hiredishelp/libhiredishelp.a
 main: coroutine/libcoroutine.a
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

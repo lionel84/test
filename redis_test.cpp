@@ -2,7 +2,7 @@
  * @Author: lionel
  * @Date: 2020-07-30 11:13:12
  * @LastEditors: lionelzhang
- * @LastEditTime: 2020-09-17 14:40:19
+ * @LastEditTime: 2020-10-21 14:58:00
  * @Description: 
  */ 
 #include <iostream>
@@ -113,6 +113,7 @@ void redis_test_proc()
 
 void redis_test()
 {
+    /*
     printf("write 1\n");
     bool result = cache::instance().write("test_key", 1);
     
@@ -130,38 +131,39 @@ void redis_test()
     printf("checked 2 %d\n", result);
 
     redis_test_proc();
-    /*
+    */
+    redis_test_init();
+    
+    const uint64_t count = 1000000;
+    uint64_t suc= 0;
+    string key = "game_score";
     printnow();
-    for(int i = 0; i< count; i++)
+    for(uint64_t i = 0; i< count; i++)
     {
         //redisReply* reply = (redisReply*)redis_conn.ExecutevCmd("DEL test_key_%d", i);
-        char key[64];
-        sprintf(key, "test_key_%d", i);
-        redisReply* reply = (redisReply*)redis_conn.ExecutevCmd("eval %s 1 %s", 
-        "local r  r = redis.call('DEL',KEYS[1]) return r", 
-        key);
+        char score[64];
+        sprintf(score, "%llu", i);
+        
+        //redisReply* reply = (redisReply*)redis_conn.ExecutevCmd(
+            int ret = redis_conn.ExecutevAsyncCmd(nullptr, nullptr, "zadd %s %d %s", key.c_str(), i, score);
+            /*
+        int ret = redis_conn.ExecutevAsyncCmd(nullptr, nullptr, 
+            "eval %s 1 %s %d %s", \
+        "local r  \
+        r = redis.call('zadd',KEYS[1], ARGV[1], ARGV[2]) \
+        return r", 
+        key.c_str(), i, score);
+        */
         //"eval \"local r  r = redis.call(\'get\',\'test\') return r\" 0"
-        if(reply != nullptr && REDIS_REPLY_INTEGER == reply->type && 1 == reply->integer)
-        {
-            suc += 1;
-        }
-        //redisReply* reply1 = (redisReply*)redis_conn.ExecutevCmd("DEL test_async_key_%d", i);
-        char key1[64];
-        sprintf(key1, "test_async_key_%d", i);
-        redisReply* reply1 = (redisReply*)redis_conn.ExecutevCmd("eval %s 1 %s", 
-        "local r \
-        r = redis.call('DEL',KEYS[1]) \
-        if r == nil then return -3 end \
-        if r == 1 then return 0 end \
-        return -1"
-         , key1);
-        if(reply1 != nullptr && REDIS_REPLY_INTEGER == reply1->type && 1 == reply1->integer)
+        //if(reply != nullptr && REDIS_REPLY_INTEGER == reply->type && 1 == reply->integer)
+        if(ret == 0)
         {
             suc += 1;
         }
     }
-    cout<<"del suc count: "<<suc<<endl;
-    */
+    printnow("插入");
+    cout<<"suc: "<<suc<<endl;
+    
    /*
     printnow();
     suc = 0;

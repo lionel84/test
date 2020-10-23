@@ -277,6 +277,87 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+rank_tree.o: rank_tree.cpp.o
+
+.PHONY : rank_tree.o
+
+# target to build an object file
+rank_tree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree.cpp.o
+.PHONY : rank_tree.cpp.o
+
+rank_tree.i: rank_tree.cpp.i
+
+.PHONY : rank_tree.i
+
+# target to preprocess a source file
+rank_tree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree.cpp.i
+.PHONY : rank_tree.cpp.i
+
+rank_tree.s: rank_tree.cpp.s
+
+.PHONY : rank_tree.s
+
+# target to generate assembly for a file
+rank_tree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree.cpp.s
+.PHONY : rank_tree.cpp.s
+
+rank_tree_v1.o: rank_tree_v1.cpp.o
+
+.PHONY : rank_tree_v1.o
+
+# target to build an object file
+rank_tree_v1.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree_v1.cpp.o
+.PHONY : rank_tree_v1.cpp.o
+
+rank_tree_v1.i: rank_tree_v1.cpp.i
+
+.PHONY : rank_tree_v1.i
+
+# target to preprocess a source file
+rank_tree_v1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree_v1.cpp.i
+.PHONY : rank_tree_v1.cpp.i
+
+rank_tree_v1.s: rank_tree_v1.cpp.s
+
+.PHONY : rank_tree_v1.s
+
+# target to generate assembly for a file
+rank_tree_v1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree_v1.cpp.s
+.PHONY : rank_tree_v1.cpp.s
+
+rank_tree_v3.o: rank_tree_v3.cpp.o
+
+.PHONY : rank_tree_v3.o
+
+# target to build an object file
+rank_tree_v3.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree_v3.cpp.o
+.PHONY : rank_tree_v3.cpp.o
+
+rank_tree_v3.i: rank_tree_v3.cpp.i
+
+.PHONY : rank_tree_v3.i
+
+# target to preprocess a source file
+rank_tree_v3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree_v3.cpp.i
+.PHONY : rank_tree_v3.cpp.i
+
+rank_tree_v3.s: rank_tree_v3.cpp.s
+
+.PHONY : rank_tree_v3.s
+
+# target to generate assembly for a file
+rank_tree_v3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree_v3.cpp.s
+.PHONY : rank_tree_v3.cpp.s
+
 redis_test.o: redis_test.cpp.o
 
 .PHONY : redis_test.o
@@ -357,6 +438,33 @@ test_aes_cbc.s: test_aes_cbc.cpp.s
 test_aes_cbc.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_aes_cbc.cpp.s
 .PHONY : test_aes_cbc.cpp.s
+
+test_auto_ptr.o: test_auto_ptr.cpp.o
+
+.PHONY : test_auto_ptr.o
+
+# target to build an object file
+test_auto_ptr.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_auto_ptr.cpp.o
+.PHONY : test_auto_ptr.cpp.o
+
+test_auto_ptr.i: test_auto_ptr.cpp.i
+
+.PHONY : test_auto_ptr.i
+
+# target to preprocess a source file
+test_auto_ptr.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_auto_ptr.cpp.i
+.PHONY : test_auto_ptr.cpp.i
+
+test_auto_ptr.s: test_auto_ptr.cpp.s
+
+.PHONY : test_auto_ptr.s
+
+# target to generate assembly for a file
+test_auto_ptr.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_auto_ptr.cpp.s
+.PHONY : test_auto_ptr.cpp.s
 
 test_bt.o: test_bt.cpp.o
 
@@ -651,6 +759,15 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... rank_tree.o"
+	@echo "... rank_tree.i"
+	@echo "... rank_tree.s"
+	@echo "... rank_tree_v1.o"
+	@echo "... rank_tree_v1.i"
+	@echo "... rank_tree_v1.s"
+	@echo "... rank_tree_v3.o"
+	@echo "... rank_tree_v3.i"
+	@echo "... rank_tree_v3.s"
 	@echo "... redis_test.o"
 	@echo "... redis_test.i"
 	@echo "... redis_test.s"
@@ -660,6 +777,9 @@ help:
 	@echo "... test_aes_cbc.o"
 	@echo "... test_aes_cbc.i"
 	@echo "... test_aes_cbc.s"
+	@echo "... test_auto_ptr.o"
+	@echo "... test_auto_ptr.i"
+	@echo "... test_auto_ptr.s"
 	@echo "... test_bt.o"
 	@echo "... test_bt.i"
 	@echo "... test_bt.s"
