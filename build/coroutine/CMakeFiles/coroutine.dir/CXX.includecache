@@ -6,25 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/data/code/main/coroutine/coroutine.cpp
-coroutine.h
-/data/code/main/coroutine/coroutine.h
-stdio.h
--
-stdlib.h
--
-assert.h
--
-stddef.h
--
-string.h
--
-stdint.h
--
-sys/ucontext.h
--
-ucontext.h
--
-
-/data/code/main/coroutine/coroutine.h
-

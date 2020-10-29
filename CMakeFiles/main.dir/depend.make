@@ -20,6 +20,7 @@ CMakeFiles/main.dir/main.cpp.o: rank_tree.h
 CMakeFiles/main.dir/main.cpp.o: rank_tree_v1.h
 CMakeFiles/main.dir/main.cpp.o: rank_tree_v3.h
 CMakeFiles/main.dir/main.cpp.o: redis_test.h
+CMakeFiles/main.dir/main.cpp.o: skiplist_tree.h
 CMakeFiles/main.dir/main.cpp.o: socket_test.h
 CMakeFiles/main.dir/main.cpp.o: test_aes_cbc.h
 CMakeFiles/main.dir/main.cpp.o: test_auto_ptr.h
@@ -56,6 +57,11 @@ CMakeFiles/main.dir/redis_test.cpp.o: redis_test.cpp
 CMakeFiles/main.dir/redis_test.cpp.o: redis_test.h
 CMakeFiles/main.dir/redis_test.cpp.o: coroutine/coroutine.h
 CMakeFiles/main.dir/redis_test.cpp.o: hiredishelp/HiredisHelper.h
+
+CMakeFiles/main.dir/skiplist_tree.cpp.o: base.h
+CMakeFiles/main.dir/skiplist_tree.cpp.o: skiplist_tree.cpp
+CMakeFiles/main.dir/skiplist_tree.cpp.o: skiplist_tree.h
+CMakeFiles/main.dir/skiplist_tree.cpp.o: test_comp.h
 
 CMakeFiles/main.dir/socket_test.cpp.o: socket_test.cpp
 

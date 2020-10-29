@@ -2,7 +2,7 @@
  * @Auth: lionelzhang
  * @Date: 2020-10-20 11:13:33
  * @LastEditors: lionelzhang
- * @LastEditTime: 2020-10-20 11:46:47
+ * @LastEditTime: 2020-10-28 16:32:55
  * @Description: 
  */
 #ifndef _TEST_COMP_H_
@@ -26,8 +26,8 @@ namespace nm_comp{
         }
         bool operator()(const KEY_TYPE& a, const KEY_TYPE& b) const
         {
-            
             bool result;
+            //if(a == b)return false;
             result = _comp_function(a, b);
             if(is_descending_order){
                 return !result;

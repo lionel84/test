@@ -83,6 +83,8 @@ rank_tree_v3.h
 /data/code/main/rank_tree_v3.h
 test_auto_ptr.h
 /data/code/main/test_auto_ptr.h
+skiplist_tree.h
+/data/code/main/skiplist_tree.h
 
 /data/code/main/print_tree.h
 string.h
@@ -121,6 +123,24 @@ unordered_map
 /data/code/main/redis_test.h
 base.h
 /data/code/main/base.h
+
+/data/code/main/skiplist_tree.h
+random
+-
+ctime
+-
+initializer_list
+-
+iostream
+-
+random
+-
+climits
+-
+unordered_map
+-
+memory
+-
 
 /data/code/main/socket_test.h
 

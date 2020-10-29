@@ -2,7 +2,7 @@
  * @Auth: lionelzhang
  * @Date: 2020-10-22 15:36:16
  * @LastEditors: lionelzhang
- * @LastEditTime: 2020-10-23 10:04:46
+ * @LastEditTime: 2020-10-29 11:51:33
  * @Description: 
  */
 #include "rank_tree.h"
@@ -16,28 +16,23 @@ int global_init_count = 0;
 int global_uninit_count = 0;
 struct RANK_DATA
 {
+    using rank_data_value_t = RANK_DATA;
 public:
     RANK_DATA(){
-        global_init_count ++;
-        _level = 1;
     }
     RANK_DATA(rank_data_key_t uid, int32_t score, int32_t ts): _uid(uid), _score(score), _ts(ts), _name("name"){
-        end[1023] = 0;
-        global_init_count ++;
-        _level = 1;
+       // end[1023] = 0;
     }
     RANK_DATA (RANK_DATA &obj){
-        global_init_count++;
     }
-    RANK_DATA &operator&=(const RANK_DATA &other) {
-        global_init_count++;
-         return (*this) = other;
+    bool operator> (const rank_data_value_t& b) const {
+        if(_score > b._score)return true;
+        if(_score == b._score){
+            return _ts > b._ts;
+        }
+        return false;
     }
     ~RANK_DATA(){
-        global_uninit_count++;
-        if(_level != 1){
-            cout<<"failed"<<endl;
-        }
     }
 
     rank_data_key_t key() const{
@@ -49,14 +44,12 @@ public:
     int32_t _ts;
     string _name;
     int32_t _level;
-    char end[1024];
+    //char end[1024];
 };
 using rank_data_value_t = RANK_DATA;
 using comp_t = KEY_COMP<rank_data_value_t>; 
 
-// 定义排序树类型
 
-using tree_t = rank_tree<rank_data_key_t, rank_data_value_t, comp_t > ;
 // 定义比较函数
 static bool comp(const rank_data_value_t& a, const rank_data_value_t& b) {
     if(a._score < b._score)return true;
@@ -65,7 +58,9 @@ static bool comp(const rank_data_value_t& a, const rank_data_value_t& b) {
     }
     return false;
 }
+// 定义排序树类型
 
+using tree_t = rank_tree<rank_data_key_t, rank_data_value_t, std::greater<rank_data_value_t> > ;
 void test(int count)
 {
     cout<<"begin nm_rank_tree"<<endl;
@@ -81,9 +76,9 @@ void test(int count)
         
     printnow();
     comp_t mycomp(comp, true/*true|false default: true(降序)*/);
-    tree_t rank_tree(mycomp);
+    tree_t rank_tree;
     const int test_size = count;
-    cout<<"排行榜测试数量："<<test_size<<endl;
+    cout<<"排行榜测试数量: "<<test_size<<endl;
     // insert
     for(int i = 1; i<= test_size; i++){
         auto it = rank_tree.insert(std::move(std::make_shared<rank_data_value_t>(i, /*rand()%100*/i, time(NULL)))); 
@@ -91,27 +86,32 @@ void test(int count)
     }
     printnow("插入");
     //cout<<global_default_init_count<<" "<<global_init_count<<" "<<global_uninit_count<<endl;
-    printf("rank_tree size: %d\n", rank_tree.size());
+    printf("排行榜节点数: %d\n", rank_tree.size());
    // tprint.print(rank_tree.m_root);
     // chaxun
-    
+    int size = 0;
     for(int i = 1; i<= test_size+100; i++){
         auto it = rank_tree.find_by_rank(i); 
+        size = sizeof(*it);
     }
-    printnow("根据排名查询");
-    // chaxun
+    printnow("根据排名查询节点");
+    cout<<"节点大小: "<<size<<endl;
+    cout<<"uid: "<<rank_tree.find_by_rank(3)->_uid<<" 积分: "<<rank_tree.find_by_rank(3)->_score<<endl;;
     
+    // chaxun
+    /*
     for(int i = 1; i<= test_size+100; i++){
         auto it = rank_tree.find_by_key(i); 
         //cout<<"rank: "<<rank_tree.rank(it)<<" id: "<<it->second._uid<<" value: "<<it->second._score<<" ts: "<<it->second._ts<<endl;
     }
     printnow("根据uid查询数据");
-
+*/
     for(uint64_t i = 1; i<= test_size+100; i++){
         auto it = rank_tree.rank_by_key(i); 
         //cout<<"rank: "<<rank_tree.rank(it)<<" id: "<<it->second._uid<<" value: "<<it->second._score<<" ts: "<<it->second._ts<<endl;
     }
     printnow("根据uid查询排名");
+    cout<<"uid[3] ,排名: "<<rank_tree.rank_by_key(3)<<endl;;
     //cout<<global_default_init_count<<" "<<global_init_count<<" "<<global_uninit_count<<endl;
     
     for(uint64_t i = 1; i<= test_size+100; i++){
@@ -126,8 +126,9 @@ void test(int count)
         //cout<<"rank: "<<rank_tree.rank(it)<<" id: "<<it->second._uid<<" value: "<<it->second._score<<" ts: "<<it->second._ts<<endl;
     }
     printnow("根据uid修改积分");
+    cout<<"uid: "<<rank_tree.find_by_rank(3)->_uid<<" 积分: "<<rank_tree.find_by_rank(3)->_score<<endl;;
     
-    cout<<global_init_count<<" "<<global_uninit_count<<endl;
+   // cout<<global_init_count<<" "<<global_uninit_count<<endl;
     
     // delete
     for(int i = 1; i<= test_size+100; i++){
@@ -135,9 +136,9 @@ void test(int count)
         if(it != rank_tree.end())
             rank_tree.erase(it);
     }
-    printnow("删除");
-    printf("rank_tree size: %d\n", rank_tree.size());
-    cout<<global_init_count<<" "<<global_uninit_count<<endl;
+    printnow("根据uid删除");
+    cout<<"uid[3] ,排名: "<<rank_tree.rank_by_key(3)<<endl;;
+    printf("排行榜节点数: %d\n", rank_tree.size());
 /*
 
     tprint.print(rank_tree.m_root);

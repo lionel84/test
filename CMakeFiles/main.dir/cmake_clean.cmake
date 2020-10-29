@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/rank_tree_v1.cpp.o"
   "CMakeFiles/main.dir/rank_tree_v3.cpp.o"
   "CMakeFiles/main.dir/redis_test.cpp.o"
+  "CMakeFiles/main.dir/skiplist_tree.cpp.o"
   "CMakeFiles/main.dir/socket_test.cpp.o"
   "CMakeFiles/main.dir/test_aes_cbc.cpp.o"
   "CMakeFiles/main.dir/test_auto_ptr.cpp.o"

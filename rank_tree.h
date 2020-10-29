@@ -248,7 +248,7 @@ public:
         }
         pointer operator->()
         {
-            return pointer(&(m_p->value));
+            return pointer((m_p->value));
         }
         bool operator==(iterator other) const
         {

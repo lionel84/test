@@ -1,5 +1,5 @@
 PROJECT(main)
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -fPIC -std=c++11 -O3 -lhiredis -levent -lcurl -lpthread -lssl -lcrypto -Wunused-function -fpermissive")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -fPIC -O2 -std=c++11 -lhiredis -levent -lcurl -lpthread -lssl -lcrypto -Wunused-function -fpermissive")
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6) 
 LINK_DIRECTORIES(/usr/local/lib)
 

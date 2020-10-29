@@ -385,6 +385,33 @@ redis_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/redis_test.cpp.s
 .PHONY : redis_test.cpp.s
 
+skiplist_tree.o: skiplist_tree.cpp.o
+
+.PHONY : skiplist_tree.o
+
+# target to build an object file
+skiplist_tree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/skiplist_tree.cpp.o
+.PHONY : skiplist_tree.cpp.o
+
+skiplist_tree.i: skiplist_tree.cpp.i
+
+.PHONY : skiplist_tree.i
+
+# target to preprocess a source file
+skiplist_tree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/skiplist_tree.cpp.i
+.PHONY : skiplist_tree.cpp.i
+
+skiplist_tree.s: skiplist_tree.cpp.s
+
+.PHONY : skiplist_tree.s
+
+# target to generate assembly for a file
+skiplist_tree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/skiplist_tree.cpp.s
+.PHONY : skiplist_tree.cpp.s
+
 socket_test.o: socket_test.cpp.o
 
 .PHONY : socket_test.o
@@ -771,6 +798,9 @@ help:
 	@echo "... redis_test.o"
 	@echo "... redis_test.i"
 	@echo "... redis_test.s"
+	@echo "... skiplist_tree.o"
+	@echo "... skiplist_tree.i"
+	@echo "... skiplist_tree.s"
 	@echo "... socket_test.o"
 	@echo "... socket_test.i"
 	@echo "... socket_test.s"
