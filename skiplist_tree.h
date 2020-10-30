@@ -2,7 +2,7 @@
  * @Auth: lionelzhang
  * @Date: 2020-10-27 11:07:08
  * @LastEditors: lionelzhang
- * @LastEditTime: 2020-10-29 21:28:43
+ * @LastEditTime: 2020-10-30 15:19:52
  * @Description: 
  */
 #ifndef __SKIPLIST_TREE_H__
@@ -19,55 +19,55 @@
 #include <memory>
 
 #define SKIP_LIST_MEM_MONITER
+#define SKIP_LIST_USE_SHARED_PTR
 namespace nm_skiplist {
 
 #define ZSKIPLIST_MAXLEVEL 64 /* Should be enough for 2^64 elements */
 #define ZSKIPLIST_P 0.25  
 
-using rank_t = int64_t ;
-
-#pragma pack(1)
-template <typename rank_data_value_t> // 需要定义操作符 == 和 <
-struct zskiplistNode
-{
-    using node_t = zskiplistNode<rank_data_value_t>;
-    using rank_t = int64_t ;
-    using rank_data_type = std::shared_ptr<rank_data_value_t>;
-
-    struct zskiplistNode *backward;
-    rank_data_type _rank_data;
-    
-#ifdef SKIP_LIST_MEM_MONITER
-    size_t _mem;
-#endif
-    //每层的节点信息
-    struct zskiplistLevel
-    {
-        node_t *forward;  //当前层当前节点下一个节点
-        rank_t span;
-    } _level[]; // 这里按需分配，可以节约极大空间
-
-#ifdef SKIP_LIST_MEM_MONITER
-    zskiplistNode(int mem):_mem(mem), backward(nullptr) {}
-    zskiplistNode(int mem, rank_data_type rank_data):_mem(mem), _rank_data(rank_data), backward(nullptr){}
-#else
-    zskiplistNode():backward(nullptr) {}
-    zskiplistNode(rank_data_type rank_data):_rank_data(rank_data), backward(nullptr){}
-#endif
-};
-
-template <typename rank_data_key_t, typename rank_data_value_t , typename comp_less_t = std::less<rank_data_value_t> >
+template <typename rank_data_key_t, typename rank_data_value_t , typename comp_t = std::less<rank_data_value_t> >
 class zskiplist
 {
-    using node_t = zskiplistNode<rank_data_value_t>;
-    using node_pointer_t = zskiplistNode<rank_data_value_t>* ; 
+    using rank_t = int64_t ;
 
-    using rank_t = int64_t;
-    using rank_data_type = std::shared_ptr<rank_data_value_t>; //std::pair<rank_data_key_t, std::shared_ptr<rank_data_value_t> >; //
-    using pointer = rank_data_type;
-    using const_pointer = const rank_data_type;
-    using reference = rank_data_type&;
-    using const_reference = const rank_data_type&;
+#ifdef SKIP_LIST_USE_SHARED_PTR
+    using rank_data_pointer = std::shared_ptr<rank_data_value_t>;
+#else
+    using rank_data_pointer = rank_data_value_t*;
+#endif
+    
+    using pointer = rank_data_pointer;
+    using const_pointer = const rank_data_pointer;
+    using reference = rank_data_pointer;
+    using const_reference = const rank_data_pointer;
+
+    struct zskiplistNode
+    {
+        struct zskiplistNode *backward;
+        rank_data_pointer _rank_data;
+        
+    #ifdef SKIP_LIST_MEM_MONITER
+        size_t _mem;
+    #endif
+        //每层的节点信息
+        struct zskiplistLevel
+        {
+            zskiplistNode *forward;  //当前层当前节点下一个节点
+            rank_t span;
+        } _level[]; // 这里按需分配，可以节约极大空间
+
+    #ifdef SKIP_LIST_MEM_MONITER
+        zskiplistNode(int mem):_mem(mem), backward(nullptr) {}
+        zskiplistNode(int mem, rank_data_pointer rank_data):_mem(mem), _rank_data(rank_data), backward(nullptr){}
+    #else
+        zskiplistNode():backward(nullptr) {}
+        zskiplistNode(rank_data_pointer rank_data):_rank_data(rank_data), backward(nullptr){}
+    #endif
+    };
+    
+    using node_t = zskiplistNode;
+    using node_pointer_t = zskiplistNode* ; 
+
 public:
     /**
      * 注意初始化的时候调表的头部指针已经存在但是长度为0
@@ -79,7 +79,7 @@ public:
 #endif
         m_level = 1;
         m_length = 0;
-        m_header = zslCreateNode(ZSKIPLIST_MAXLEVEL); // new node_t(ZSKIPLIST_MAXLEVEL);
+        m_header = zslCreateNode(ZSKIPLIST_MAXLEVEL, nullptr); // new node_t(ZSKIPLIST_MAXLEVEL);
         
         for (int j = 0; j < ZSKIPLIST_MAXLEVEL; j++) {
             m_header->_level[j].forward = NULL;
@@ -102,12 +102,7 @@ public:
             node = next;
         }
     }
- /*
-    skiplist_t &GetMskiplist()
-    {
-        return mskiplist;
-    }
-*/
+    
     inline uint64_t GetMem(){
 #ifdef SKIP_LIST_MEM_MONITER
         return m_memory;
@@ -160,7 +155,7 @@ public:
         
         pointer operator->()
         {
-            return pointer(m_p->_rank_data);
+            return m_p->_rank_data;
         }
         bool operator==(iterator other) const
         {
@@ -195,7 +190,7 @@ private:
      * @param value
      * @return
      */
-    node_t* zslCreateNode(int level,rank_data_type rank_data = rank_data_type()){
+    node_t* zslCreateNode(int level,rank_data_pointer rank_data){
         //node_t *p = new node_t(level, rank_data);
         size_t need_mem = sizeof(node_t)+level*sizeof(struct node_t::zskiplistLevel);
         void *p_m = malloc(need_mem);
@@ -227,8 +222,7 @@ private:
         return (level < ZSKIPLIST_MAXLEVEL) ? level : ZSKIPLIST_MAXLEVEL;
     }
 public:
-    // std::pair<rank_data_key_t, std::shared_ptr<rank_data_value_t> >
-    iterator zslInsert(const rank_data_key_t& key, rank_data_type  rank_data){
+    iterator zslInsert(const rank_data_key_t& key, rank_data_pointer  rank_data){
         if(m_cache.find(key) != m_cache.end()){
             return iterator(nullptr);
         }
@@ -243,7 +237,7 @@ public:
             rank[i] = i == (m_level-1) ? 0 : rank[i+1];
             //如果当前节点的下一个节点is not null，且他的下一个节点的score小于插入节点的score，或者他们积分相等但是ele小于插入节点的ele，则继续往后找，直到
             //找到条件不满足的跳出循环，则新插入的节点需要插入该层的当前节点后面，把此节点记录到update数组中
-            while (tmpNode->_level[i].forward && m_comp_less(*tmpNode->_level[i].forward->_rank_data , *rank_data))
+            while (tmpNode->_level[i].forward && m_comp(*tmpNode->_level[i].forward->_rank_data , *rank_data))
             {
                 rank[i] += tmpNode->_level[i].span;
                 tmpNode = tmpNode->_level[i].forward;
@@ -323,7 +317,7 @@ public:
         auto it = m_cache.find(key);
         if(it == m_cache.end())
             return false;
-        rank_data_type rank_data = it->second->_rank_data;
+        rank_data_pointer rank_data = it->second->_rank_data;
         node_t *update[ZSKIPLIST_MAXLEVEL] = {0}; //每一层需要修改的结点,在每层中，新的节点需要插入在该节点的后面
         node_t * tmpNode;
         int i;
@@ -333,7 +327,7 @@ public:
         {
             //如果当前节点的下一个节点is not null，且他的下一个节点的score小于插入节点的score，或者他们积分相等但是ele小于插入节点的ele，则继续往后找，直到
             //找到条件不满足的跳出循环，则每层要删除的节点的前一个节点都存在update数组中
-            while (tmpNode->_level[i].forward && m_comp_less(*tmpNode->_level[i].forward->_rank_data , *rank_data))
+            while (tmpNode->_level[i].forward && m_comp(*tmpNode->_level[i].forward->_rank_data , *rank_data))
             {
                 tmpNode = tmpNode->_level[i].forward;
             }
@@ -353,7 +347,7 @@ public:
         return false; /* not found */
     }
     
-    iterator zslUpdateScore(const rank_data_key_t& key, rank_data_type rank_data) {
+    iterator zslUpdateScore(const rank_data_key_t& key, rank_data_pointer rank_data) {
         node_t *x = nullptr;
         auto it = m_cache.find(key);
         if(it != m_cache.end()){
@@ -407,7 +401,7 @@ public:
         auto it = m_cache.find(key);
         if(it == m_cache.end())
             return -1;
-        rank_data_type rank_data = it->second->_rank_data;
+        rank_data_pointer rank_data = it->second->_rank_data;
         
         node_t *x;
         rank_t rank = 0;
@@ -415,7 +409,7 @@ public:
 
         x = m_header;
         for (i = m_level-1; i >= 0; i--) {
-            while (x->_level[i].forward && m_comp_less(*x->_level[i].forward->_rank_data , *rank_data )) {
+            while (x->_level[i].forward && m_comp(*x->_level[i].forward->_rank_data , *rank_data )) {
                 rank += x->_level[i].span;
                 x = x->_level[i].forward;
             }
@@ -431,7 +425,7 @@ public:
 private:
     //skiplist_t mskiplist;
     std::unordered_map<rank_data_key_t, node_t*> m_cache;
-    comp_less_t  m_comp_less;
+    comp_t  m_comp;
 #ifdef SKIP_LIST_MEM_MONITER
     uint64_t m_memory;
 #endif

@@ -2,7 +2,7 @@
  * @Auth: lionelzhang
  * @Date: 2020-10-22 15:36:16
  * @LastEditors: lionelzhang
- * @LastEditTime: 2020-10-29 11:51:33
+ * @LastEditTime: 2020-10-30 15:17:59
  * @Description: 
  */
 #include "rank_tree.h"
@@ -14,14 +14,18 @@ namespace nm_rank_tree {
 using rank_data_key_t = uint64_t;
 int global_init_count = 0;
 int global_uninit_count = 0;
+int fail_count =0;
 struct RANK_DATA
 {
     using rank_data_value_t = RANK_DATA;
 public:
     RANK_DATA(){
+        //global_init_count ++;
     }
     RANK_DATA(rank_data_key_t uid, int32_t score, int32_t ts): _uid(uid), _score(score), _ts(ts), _name("name"){
        // end[1023] = 0;
+       _level = 1;
+       global_init_count++;
     }
     RANK_DATA (RANK_DATA &obj){
     }
@@ -33,6 +37,12 @@ public:
         return false;
     }
     ~RANK_DATA(){
+        if(_level != 1){
+            fail_count ++;
+        }
+            global_uninit_count++;  
+        
+        
     }
 
     rank_data_key_t key() const{
@@ -137,6 +147,7 @@ void test(int count)
             rank_tree.erase(it);
     }
     printnow("根据uid删除");
+     cout<<global_init_count<<" "<<global_uninit_count<<" "<<fail_count<<endl;
     cout<<"uid[3] ,排名: "<<rank_tree.rank_by_key(3)<<endl;;
     printf("排行榜节点数: %d\n", rank_tree.size());
 /*

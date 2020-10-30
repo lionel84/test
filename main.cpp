@@ -2,7 +2,7 @@
  * @Author: lionel
  * @Date: 2020-07-22 17:33:50
  * @LastEditors: lionelzhang
- * @LastEditTime: 2020-10-29 21:29:35
+ * @LastEditTime: 2020-10-29 21:34:49
  * @Description: main
  */ 
 
@@ -72,9 +72,9 @@ int main(int argc, char** argv) {
     //redis_test();
     
    // nm_rank_tree_v1::test(1000000);
-    nm_rank_tree::test(10000000); 
+    nm_rank_tree::test(1000000); 
   //  nm_rank_tree_v3::test(1000000);
-  nm_skiplist::test(10000000);
+  nm_skiplist::test(1000000);
     //nm_ptr::test();
     //nm_test_aes_cbc::test();
 

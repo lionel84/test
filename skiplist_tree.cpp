@@ -2,17 +2,24 @@
  * @Auth: lionelzhang
  * @Date: 2020-10-27 11:16:01
  * @LastEditors: lionelzhang
- * @LastEditTime: 2020-10-29 21:27:15
+ * @LastEditTime: 2020-10-30 15:20:08
  * @Description: 
  */
 #include "skiplist_tree.h"
 #include "base.h"
 #include "test_comp.h"
+int global_init_count = 0;
+int global_uninit_count = 0;
+int fail_count =0;
+
 // 定义数据类型
 using rank_data_key_t = uint64_t;
+
 struct RANK_DATA
 {
     RANK_DATA(rank_data_key_t uid, int32_t score, int32_t ts): _uid(uid), _score(score), _ts(ts), _name("name"){
+        _level = 1;
+        global_init_count ++;
         //end[1023] = 0;
     }
     const bool operator < (const RANK_DATA& other) const{
@@ -41,6 +48,10 @@ struct RANK_DATA
     }
     
     ~RANK_DATA(){
+        if(_level != 1){
+            fail_count ++;
+        }
+        global_uninit_count ++;
     }
 /*
     inline rank_data_key_t key() const{
@@ -68,8 +79,10 @@ namespace nm_skiplist {
         zskiplist<rank_data_key_t, rank_data_value_t, std::greater<rank_data_value_t> > list;
         for(int i = 0; i< count; i++){
             list.zslInsert(i, std::make_shared<rank_data_value_t>(i, i+1, i));
+            //list.zslInsert(i, new rank_data_value_t(i, i+1, i));
         }
         printnow("插入");
+        cout<<global_init_count<<" "<<global_uninit_count<<" "<<fail_count<<endl;
         cout<<"memory: "<<list.GetMem()<<endl;
         cout<<"排行榜节点数: "<<list.size()<<endl;
         for(int i = 0; i< count; i++){
@@ -92,6 +105,7 @@ namespace nm_skiplist {
             }
         }
         printnow("根据uid修改积分");
+        cout<<global_init_count<<" "<<global_uninit_count<<" "<<fail_count<<endl;
         cout<<"uid: "<<list.getNodeByRank(3)->_uid<<" 积分: "<<list.getNodeByRank(3)->_score<<endl;;
         uint64_t loop =  0;
         for(auto it = list.begin(); it != list.end(); it++){
@@ -118,6 +132,7 @@ namespace nm_skiplist {
             }
         }
         printnow("根据uid删除");
+        cout<<global_init_count<<" "<<global_uninit_count<<" "<<fail_count<<endl;
         cout<<"memory: "<<list.GetMem()<<endl;
         cout<<"uid[3] ,排名: "<<list.getRankByKey(3)<<endl;
         cout<<"排行榜节点数:: "<<list.size()<<endl;
