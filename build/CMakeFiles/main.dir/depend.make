@@ -17,9 +17,9 @@ CMakeFiles/main.dir/coroutine_test.cpp.o: ../redis_test.h
 CMakeFiles/main.dir/main.cpp.o: ../base.h
 CMakeFiles/main.dir/main.cpp.o: ../main.cpp
 CMakeFiles/main.dir/main.cpp.o: ../print_tree.h
-CMakeFiles/main.dir/main.cpp.o: ../rank_tree.h
-CMakeFiles/main.dir/main.cpp.o: ../rank_tree_v1.h
-CMakeFiles/main.dir/main.cpp.o: ../rank_tree_v3.h
+CMakeFiles/main.dir/main.cpp.o: ../rank_rbtree.h
+CMakeFiles/main.dir/main.cpp.o: ../rank_skip_list.h
+CMakeFiles/main.dir/main.cpp.o: ../rank_test.h
 CMakeFiles/main.dir/main.cpp.o: ../redis_test.h
 CMakeFiles/main.dir/main.cpp.o: ../socket_test.h
 CMakeFiles/main.dir/main.cpp.o: ../test_aes_cbc.h
@@ -28,28 +28,26 @@ CMakeFiles/main.dir/main.cpp.o: ../test_json_pack.h
 CMakeFiles/main.dir/main.cpp.o: ../test_map.h
 CMakeFiles/main.dir/main.cpp.o: ../test_pair.h
 CMakeFiles/main.dir/main.cpp.o: ../test_popen.h
-CMakeFiles/main.dir/main.cpp.o: ../test_rbtree.h
 CMakeFiles/main.dir/main.cpp.o: ../test_state_mechine.h
 CMakeFiles/main.dir/main.cpp.o: ../test_template.h
 CMakeFiles/main.dir/main.cpp.o: ../test_test.h
 CMakeFiles/main.dir/main.cpp.o: ../test_tree.h
 CMakeFiles/main.dir/main.cpp.o: ../test_using.h
 
-CMakeFiles/main.dir/rank_tree.cpp.o: ../base.h
-CMakeFiles/main.dir/rank_tree.cpp.o: ../print_tree.h
-CMakeFiles/main.dir/rank_tree.cpp.o: ../rank_tree.cpp
-CMakeFiles/main.dir/rank_tree.cpp.o: ../rank_tree.h
+CMakeFiles/main.dir/rank_rbtree.cpp.o: ../base.h
+CMakeFiles/main.dir/rank_rbtree.cpp.o: ../print_tree.h
+CMakeFiles/main.dir/rank_rbtree.cpp.o: ../rank_rbtree.cpp
+CMakeFiles/main.dir/rank_rbtree.cpp.o: ../rank_rbtree.h
 
-CMakeFiles/main.dir/rank_tree_v1.cpp.o: ../base.h
-CMakeFiles/main.dir/rank_tree_v1.cpp.o: ../print_tree.h
-CMakeFiles/main.dir/rank_tree_v1.cpp.o: ../rank_tree_v1.cpp
-CMakeFiles/main.dir/rank_tree_v1.cpp.o: ../rank_tree_v1.h
-CMakeFiles/main.dir/rank_tree_v1.cpp.o: ../test_comp.h
+CMakeFiles/main.dir/rank_skip_list.cpp.o: ../base.h
+CMakeFiles/main.dir/rank_skip_list.cpp.o: ../rank_skip_list.cpp
+CMakeFiles/main.dir/rank_skip_list.cpp.o: ../rank_skip_list.h
 
-CMakeFiles/main.dir/rank_tree_v3.cpp.o: ../base.h
-CMakeFiles/main.dir/rank_tree_v3.cpp.o: ../print_tree.h
-CMakeFiles/main.dir/rank_tree_v3.cpp.o: ../rank_tree_v3.cpp
-CMakeFiles/main.dir/rank_tree_v3.cpp.o: ../rank_tree_v3.h
+CMakeFiles/main.dir/rank_test.cpp.o: ../base.h
+CMakeFiles/main.dir/rank_test.cpp.o: ../print_tree.h
+CMakeFiles/main.dir/rank_test.cpp.o: ../rank_rbtree.h
+CMakeFiles/main.dir/rank_test.cpp.o: ../rank_skip_list.h
+CMakeFiles/main.dir/rank_test.cpp.o: ../rank_test.cpp
 
 CMakeFiles/main.dir/redis_test.cpp.o: ../coroutine/coroutine.h
 CMakeFiles/main.dir/redis_test.cpp.o: ../hiredishelp/HiredisHelper.h
@@ -57,9 +55,6 @@ CMakeFiles/main.dir/redis_test.cpp.o: ../base.h
 CMakeFiles/main.dir/redis_test.cpp.o: ../cache.h
 CMakeFiles/main.dir/redis_test.cpp.o: ../redis_test.cpp
 CMakeFiles/main.dir/redis_test.cpp.o: ../redis_test.h
-
-CMakeFiles/main.dir/skiplist_tree.cpp.o: ../skiplist_tree.cpp
-CMakeFiles/main.dir/skiplist_tree.cpp.o: ../skiplist_tree.h
 
 CMakeFiles/main.dir/socket_test.cpp.o: ../socket_test.cpp
 
@@ -110,12 +105,6 @@ CMakeFiles/main.dir/test_map.cpp.o: ../test_map.cpp
 CMakeFiles/main.dir/test_map.cpp.o: ../test_map.h
 
 CMakeFiles/main.dir/test_popen.cpp.o: ../test_popen.cpp
-
-CMakeFiles/main.dir/test_rbtree.cpp.o: ../base.h
-CMakeFiles/main.dir/test_rbtree.cpp.o: ../print_tree.h
-CMakeFiles/main.dir/test_rbtree.cpp.o: ../rank_tree_v1.h
-CMakeFiles/main.dir/test_rbtree.cpp.o: ../test_comp.h
-CMakeFiles/main.dir/test_rbtree.cpp.o: ../test_rbtree.cpp
 
 CMakeFiles/main.dir/test_state_mechine.cpp.o: ../test_state_mechine.cpp
 

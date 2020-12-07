@@ -277,86 +277,86 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-rank_tree.o: rank_tree.cpp.o
+rank_rbtree.o: rank_rbtree.cpp.o
 
-.PHONY : rank_tree.o
-
-# target to build an object file
-rank_tree.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree.cpp.o
-.PHONY : rank_tree.cpp.o
-
-rank_tree.i: rank_tree.cpp.i
-
-.PHONY : rank_tree.i
-
-# target to preprocess a source file
-rank_tree.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree.cpp.i
-.PHONY : rank_tree.cpp.i
-
-rank_tree.s: rank_tree.cpp.s
-
-.PHONY : rank_tree.s
-
-# target to generate assembly for a file
-rank_tree.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree.cpp.s
-.PHONY : rank_tree.cpp.s
-
-rank_tree_v1.o: rank_tree_v1.cpp.o
-
-.PHONY : rank_tree_v1.o
+.PHONY : rank_rbtree.o
 
 # target to build an object file
-rank_tree_v1.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree_v1.cpp.o
-.PHONY : rank_tree_v1.cpp.o
+rank_rbtree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_rbtree.cpp.o
+.PHONY : rank_rbtree.cpp.o
 
-rank_tree_v1.i: rank_tree_v1.cpp.i
+rank_rbtree.i: rank_rbtree.cpp.i
 
-.PHONY : rank_tree_v1.i
+.PHONY : rank_rbtree.i
 
 # target to preprocess a source file
-rank_tree_v1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree_v1.cpp.i
-.PHONY : rank_tree_v1.cpp.i
+rank_rbtree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_rbtree.cpp.i
+.PHONY : rank_rbtree.cpp.i
 
-rank_tree_v1.s: rank_tree_v1.cpp.s
+rank_rbtree.s: rank_rbtree.cpp.s
 
-.PHONY : rank_tree_v1.s
+.PHONY : rank_rbtree.s
 
 # target to generate assembly for a file
-rank_tree_v1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree_v1.cpp.s
-.PHONY : rank_tree_v1.cpp.s
+rank_rbtree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_rbtree.cpp.s
+.PHONY : rank_rbtree.cpp.s
 
-rank_tree_v3.o: rank_tree_v3.cpp.o
+rank_skip_list.o: rank_skip_list.cpp.o
 
-.PHONY : rank_tree_v3.o
+.PHONY : rank_skip_list.o
 
 # target to build an object file
-rank_tree_v3.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree_v3.cpp.o
-.PHONY : rank_tree_v3.cpp.o
+rank_skip_list.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_skip_list.cpp.o
+.PHONY : rank_skip_list.cpp.o
 
-rank_tree_v3.i: rank_tree_v3.cpp.i
+rank_skip_list.i: rank_skip_list.cpp.i
 
-.PHONY : rank_tree_v3.i
+.PHONY : rank_skip_list.i
 
 # target to preprocess a source file
-rank_tree_v3.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree_v3.cpp.i
-.PHONY : rank_tree_v3.cpp.i
+rank_skip_list.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_skip_list.cpp.i
+.PHONY : rank_skip_list.cpp.i
 
-rank_tree_v3.s: rank_tree_v3.cpp.s
+rank_skip_list.s: rank_skip_list.cpp.s
 
-.PHONY : rank_tree_v3.s
+.PHONY : rank_skip_list.s
 
 # target to generate assembly for a file
-rank_tree_v3.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_tree_v3.cpp.s
-.PHONY : rank_tree_v3.cpp.s
+rank_skip_list.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_skip_list.cpp.s
+.PHONY : rank_skip_list.cpp.s
+
+rank_test.o: rank_test.cpp.o
+
+.PHONY : rank_test.o
+
+# target to build an object file
+rank_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_test.cpp.o
+.PHONY : rank_test.cpp.o
+
+rank_test.i: rank_test.cpp.i
+
+.PHONY : rank_test.i
+
+# target to preprocess a source file
+rank_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_test.cpp.i
+.PHONY : rank_test.cpp.i
+
+rank_test.s: rank_test.cpp.s
+
+.PHONY : rank_test.s
+
+# target to generate assembly for a file
+rank_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/rank_test.cpp.s
+.PHONY : rank_test.cpp.s
 
 redis_test.o: redis_test.cpp.o
 
@@ -384,33 +384,6 @@ redis_test.s: redis_test.cpp.s
 redis_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/redis_test.cpp.s
 .PHONY : redis_test.cpp.s
-
-skiplist_tree.o: skiplist_tree.cpp.o
-
-.PHONY : skiplist_tree.o
-
-# target to build an object file
-skiplist_tree.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/skiplist_tree.cpp.o
-.PHONY : skiplist_tree.cpp.o
-
-skiplist_tree.i: skiplist_tree.cpp.i
-
-.PHONY : skiplist_tree.i
-
-# target to preprocess a source file
-skiplist_tree.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/skiplist_tree.cpp.i
-.PHONY : skiplist_tree.cpp.i
-
-skiplist_tree.s: skiplist_tree.cpp.s
-
-.PHONY : skiplist_tree.s
-
-# target to generate assembly for a file
-skiplist_tree.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/skiplist_tree.cpp.s
-.PHONY : skiplist_tree.cpp.s
 
 socket_test.o: socket_test.cpp.o
 
@@ -628,33 +601,6 @@ test_popen.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_popen.cpp.s
 .PHONY : test_popen.cpp.s
 
-test_rbtree.o: test_rbtree.cpp.o
-
-.PHONY : test_rbtree.o
-
-# target to build an object file
-test_rbtree.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_rbtree.cpp.o
-.PHONY : test_rbtree.cpp.o
-
-test_rbtree.i: test_rbtree.cpp.i
-
-.PHONY : test_rbtree.i
-
-# target to preprocess a source file
-test_rbtree.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_rbtree.cpp.i
-.PHONY : test_rbtree.cpp.i
-
-test_rbtree.s: test_rbtree.cpp.s
-
-.PHONY : test_rbtree.s
-
-# target to generate assembly for a file
-test_rbtree.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_rbtree.cpp.s
-.PHONY : test_rbtree.cpp.s
-
 test_state_mechine.o: test_state_mechine.cpp.o
 
 .PHONY : test_state_mechine.o
@@ -786,21 +732,18 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... rank_tree.o"
-	@echo "... rank_tree.i"
-	@echo "... rank_tree.s"
-	@echo "... rank_tree_v1.o"
-	@echo "... rank_tree_v1.i"
-	@echo "... rank_tree_v1.s"
-	@echo "... rank_tree_v3.o"
-	@echo "... rank_tree_v3.i"
-	@echo "... rank_tree_v3.s"
+	@echo "... rank_rbtree.o"
+	@echo "... rank_rbtree.i"
+	@echo "... rank_rbtree.s"
+	@echo "... rank_skip_list.o"
+	@echo "... rank_skip_list.i"
+	@echo "... rank_skip_list.s"
+	@echo "... rank_test.o"
+	@echo "... rank_test.i"
+	@echo "... rank_test.s"
 	@echo "... redis_test.o"
 	@echo "... redis_test.i"
 	@echo "... redis_test.s"
-	@echo "... skiplist_tree.o"
-	@echo "... skiplist_tree.i"
-	@echo "... skiplist_tree.s"
 	@echo "... socket_test.o"
 	@echo "... socket_test.i"
 	@echo "... socket_test.s"
@@ -825,9 +768,6 @@ help:
 	@echo "... test_popen.o"
 	@echo "... test_popen.i"
 	@echo "... test_popen.s"
-	@echo "... test_rbtree.o"
-	@echo "... test_rbtree.i"
-	@echo "... test_rbtree.s"
 	@echo "... test_state_mechine.o"
 	@echo "... test_state_mechine.i"
 	@echo "... test_state_mechine.s"

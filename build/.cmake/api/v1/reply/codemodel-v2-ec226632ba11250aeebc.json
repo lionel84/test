@@ -75,21 +75,21 @@
 				{
 					"directoryIndex" : 2,
 					"id" : "coroutine::@285a6d4657d905b1c4af",
-					"jsonFile" : "target-coroutine-Debug-cadded1a74b583821d65.json",
+					"jsonFile" : "target-coroutine-Debug-f7a12c211d643e9b297b.json",
 					"name" : "coroutine",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "hiredishelp::@5a4cb30668185644449e",
-					"jsonFile" : "target-hiredishelp-Debug-7c24b9cfee8bc848c86c.json",
+					"jsonFile" : "target-hiredishelp-Debug-1a1a4728b6a202b71f76.json",
 					"name" : "hiredishelp",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "main::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-main-Debug-b5e74948c447b8154c61.json",
+					"jsonFile" : "target-main-Debug-419f874f06950ce9cefb.json",
 					"name" : "main",
 					"projectIndex" : 0
 				}

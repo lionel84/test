@@ -80,15 +80,15 @@ include hiredishelp/CMakeFiles/hiredishelp.dir/flags.make
 hiredishelp/CMakeFiles/hiredishelp.dir/HiredisHelper.cpp.o: hiredishelp/CMakeFiles/hiredishelp.dir/flags.make
 hiredishelp/CMakeFiles/hiredishelp.dir/HiredisHelper.cpp.o: hiredishelp/HiredisHelper.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object hiredishelp/CMakeFiles/hiredishelp.dir/HiredisHelper.cpp.o"
-	cd /data/code/main/hiredishelp && /usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hiredishelp.dir/HiredisHelper.cpp.o -c /data/code/main/hiredishelp/HiredisHelper.cpp
+	cd /data/code/main/hiredishelp && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/hiredishelp.dir/HiredisHelper.cpp.o -c /data/code/main/hiredishelp/HiredisHelper.cpp
 
 hiredishelp/CMakeFiles/hiredishelp.dir/HiredisHelper.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hiredishelp.dir/HiredisHelper.cpp.i"
-	cd /data/code/main/hiredishelp && /usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/code/main/hiredishelp/HiredisHelper.cpp > CMakeFiles/hiredishelp.dir/HiredisHelper.cpp.i
+	cd /data/code/main/hiredishelp && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/code/main/hiredishelp/HiredisHelper.cpp > CMakeFiles/hiredishelp.dir/HiredisHelper.cpp.i
 
 hiredishelp/CMakeFiles/hiredishelp.dir/HiredisHelper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hiredishelp.dir/HiredisHelper.cpp.s"
-	cd /data/code/main/hiredishelp && /usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/code/main/hiredishelp/HiredisHelper.cpp -o CMakeFiles/hiredishelp.dir/HiredisHelper.cpp.s
+	cd /data/code/main/hiredishelp && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/code/main/hiredishelp/HiredisHelper.cpp -o CMakeFiles/hiredishelp.dir/HiredisHelper.cpp.s
 
 # Object files for target hiredishelp
 hiredishelp_OBJECTS = \

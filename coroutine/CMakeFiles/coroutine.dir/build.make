@@ -80,15 +80,15 @@ include coroutine/CMakeFiles/coroutine.dir/flags.make
 coroutine/CMakeFiles/coroutine.dir/coroutine.cpp.o: coroutine/CMakeFiles/coroutine.dir/flags.make
 coroutine/CMakeFiles/coroutine.dir/coroutine.cpp.o: coroutine/coroutine.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/code/main/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object coroutine/CMakeFiles/coroutine.dir/coroutine.cpp.o"
-	cd /data/code/main/coroutine && /usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/coroutine.dir/coroutine.cpp.o -c /data/code/main/coroutine/coroutine.cpp
+	cd /data/code/main/coroutine && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/coroutine.dir/coroutine.cpp.o -c /data/code/main/coroutine/coroutine.cpp
 
 coroutine/CMakeFiles/coroutine.dir/coroutine.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/coroutine.dir/coroutine.cpp.i"
-	cd /data/code/main/coroutine && /usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/code/main/coroutine/coroutine.cpp > CMakeFiles/coroutine.dir/coroutine.cpp.i
+	cd /data/code/main/coroutine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /data/code/main/coroutine/coroutine.cpp > CMakeFiles/coroutine.dir/coroutine.cpp.i
 
 coroutine/CMakeFiles/coroutine.dir/coroutine.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/coroutine.dir/coroutine.cpp.s"
-	cd /data/code/main/coroutine && /usr/lib64/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/code/main/coroutine/coroutine.cpp -o CMakeFiles/coroutine.dir/coroutine.cpp.s
+	cd /data/code/main/coroutine && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /data/code/main/coroutine/coroutine.cpp -o CMakeFiles/coroutine.dir/coroutine.cpp.s
 
 # Object files for target coroutine
 coroutine_OBJECTS = \

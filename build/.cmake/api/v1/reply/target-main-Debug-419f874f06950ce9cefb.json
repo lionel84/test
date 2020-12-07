@@ -68,7 +68,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -g -fPIC -std=c++11 -O3 -lhiredis -levent -lcurl -lpthread -lssl -lcrypto -Wunused-function -fpermissive -g  "
+					"fragment" : " -g -fPIC  -O2 -std=c++11 -lhiredis -levent -lcurl -lpthread -lssl -lcrypto -Wunused-function -fpermissive -g  "
 				}
 			],
 			"includes" : 
@@ -108,9 +108,7 @@
 				16,
 				17,
 				18,
-				19,
-				20,
-				21
+				19
 			]
 		}
 	],
@@ -131,7 +129,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g -fPIC -std=c++11 -O3 -lhiredis -levent -lcurl -lpthread -lssl -lcrypto -Wunused-function -fpermissive -g",
+				"fragment" : "-g -fPIC  -O2 -std=c++11 -lhiredis -levent -lcurl -lpthread -lssl -lcrypto -Wunused-function -fpermissive -g",
 				"role" : "flags"
 			},
 			{
@@ -192,9 +190,7 @@
 				16,
 				17,
 				18,
-				19,
-				20,
-				21
+				19
 			]
 		}
 	],
@@ -227,31 +223,25 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "rank_tree.cpp",
+			"path" : "rank_rbtree.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "rank_tree_v1.cpp",
+			"path" : "rank_skip_list.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "rank_tree_v3.cpp",
+			"path" : "rank_test.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "redis_test.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "skiplist_tree.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -300,12 +290,6 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "test_popen.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test_rbtree.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

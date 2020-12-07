@@ -1,5 +1,7 @@
-#ifndef _RANK_TREE_V1_H_
-#define _RANK_TREE_V1_H_
+// 
+// base rb_tree
+#ifndef _RANK_TREE_H_
+#define _RANK_TREE_H_
 
 //#define RANK_TREE_DEBUG 
 
@@ -7,12 +9,18 @@
 #include "print_tree.h"
 #endif
 
-namespace nm_rank_tree_v1 {
+#include <memory>
+#include <unordered_map>
+#include <vector>
 
-template< typename rank_data_value_t>
+//#define RANK_DB_TREE_USE_VALUE_PTR
+
+namespace nm_rank_tree {
+#if 0
+template<typename rank_data_value_t>
 class KEY_COMP
 {
-    using comp_function_t = std::function<bool (const rank_data_value_t& l, const rank_data_value_t& r)>;
+    using comp_function_t = std::function<bool (const rank_data_value_t& l, const rank_data_value_t& r) >;
 public:    
     KEY_COMP(comp_function_t comp, bool descending_order = true):_comp_function(comp), is_descending_order(descending_order) 
     {
@@ -31,32 +39,21 @@ private:
     bool is_descending_order;
     comp_function_t _comp_function;
 };
-
-template <typename T, typename allocator_t = std::allocator<T> >
-class DATA_ALLOCATOR
-{
-public:
-    DATA_ALLOCATOR():_allocator(){}
-    DATA_ALLOCATOR(allocator_t allocator):_allocator(allocator){}
-    T* allocate(std::size_t n ){
-        return _allocator.allocate(n);
-    }
-    void deallocate( T* p, std::size_t n ){
-        _allocator.deallocate(p, n);
-    }
-private:
-    allocator_t _allocator;
-};
+#endif
 
 template <typename rank_data_key_t, typename rank_data_value_t, typename comp_t = std::less<rank_data_value_t>  > 
 class rank_tree {
 public:
-    using rank_data_type = rank_data_value_t; //std::pair<rank_data_key_t, rank_data_value_t>; 
+#ifdef RANK_DB_TREE_USE_VALUE_PTR
+    using rank_data_type = std::pair<rank_data_key_t, rank_data_value_t*>; 
+#else
+    using rank_data_type = std::pair<rank_data_key_t, rank_data_value_t>;
+#endif
     using pointer = rank_data_type*;
     using const_pointer = const rank_data_type*;
     using reference = rank_data_type&;
     using const_reference = const rank_data_type&;
-    using rank_t = int64_t;
+    using rank_t = size_t;
 
 public:
     // node类型
@@ -66,7 +63,7 @@ public:
         using pointer_t = node* ; 
         static const uint32_t red = 0;
         static const uint32_t black = 1;
-        node():parent(nullptr), size(1), color(red) 
+        node(const_reference value):_value(value), parent(nullptr), size(1), color(red) 
         {
             children[0] = nullptr;
             children[1] = nullptr;
@@ -76,10 +73,10 @@ public:
         pointer_t parent;
         rank_t size;
         uint32_t color;
-        rank_data_type value;
-        void construct()
+        rank_data_type _value;
+        void construct(const_reference value)
         {
-            new(this) node;
+            new(this) node(value);
         }
 
         static bool is_red(pointer_t n)
@@ -201,7 +198,6 @@ public:
         }
     };
 
-    //using data_allocator_t = DATA_ALLOCATOR<node> ;
     using data_allocator_t = std::allocator<node>;
     using node_pointer_t = node* ; 
 
@@ -257,11 +253,19 @@ public:
         }
         reference operator*()
         {
-            return m_p->value;
+            return static_cast<node_pointer_t>(m_p)->_value; 
+        }
+        const_reference operator*() const
+        {
+            return static_cast<node_pointer_t>(m_p)->_value; 
         }
         pointer operator->()
         {
-            return pointer(&(m_p->value));
+            return &(static_cast<node_pointer_t>(m_p)->_value); 
+        }
+        const_pointer operator->() const
+        {
+            return &(static_cast<node_pointer_t>(m_p)->_value); 
         }
         bool operator==(iterator other) const
         {
@@ -277,21 +281,22 @@ public:
     };
 
     rank_tree():m_root(nullptr), m_comp()
+    ,_begin(nullptr), _back(nullptr)
+    ,m_free_list(nullptr)
     {
 
     }
 
-    rank_tree(comp_t comp): m_root(nullptr), m_comp(comp) {
-
-    }
-    /*
-    rank_tree(comp_function_t comp, bool descending = true):m_root(nullptr), m_comp(comp_t(comp, descending))
+    rank_tree(comp_t comp): m_root(nullptr), m_comp(comp) 
+    ,_begin(nullptr), _back(nullptr)
+    ,m_free_list(nullptr)
     {
 
     }
-    */
 
     rank_tree(const rank_tree& rbtree):m_root(nullptr), m_comp(rbtree.m_comp)
+    ,_begin(nullptr), _back(nullptr)
+    ,m_free_list(nullptr)
     {
     }
 
@@ -314,11 +319,31 @@ public:
     {
         return __rank(i.m_p);
     }
-    
+    /* Finds an element by its rank. The rank argument needs to be 1-based. */
     iterator    find_by_rank(rank_t r) const
     {
         node_pointer_t p = __find_by_rank(r);
         return iterator(p);
+    }
+
+    iterator operator [](rank_t r){
+        node_pointer_t p = __find_by_rank(r+1);
+        return iterator(p); 
+    }
+
+    std::vector<iterator> find_by_rank(rank_t rmin, rank_t rmax)
+    {
+        std::vector<iterator> ret;
+        if(rmin > rmax){
+            std::swap(rmin, rmax);
+        }
+        if(rmin < 1)rmin = 1;
+        if(rmax > size())rmax = size();
+        rank_t i = rmin;
+        for(auto it = find_by_rank(rmin); it != end() && i<= rmax; it++, i++){
+            ret.push_back(it);
+        }
+        return ret;
     }
 
     iterator find_by_key(rank_data_key_t key) const
@@ -329,41 +354,75 @@ public:
 
     rank_t rank_by_key(rank_data_key_t key) const
     {
-        iterator it = find_by_key(key);
-        if(it.m_p){
-            return rank(it);
-        }
-        return -1;
+        auto p = m_data.find(key);
+        return p != m_data.end()?__rank(p->second):0;
     }
-
-    iterator insert(const_reference v)
+    #if 1
+    iterator insert(const_reference rank_data)
     {
-        node_pointer_t p = __insert(v);
+        auto it = m_data.find(rank_data.first);
+        if(it != m_data.end()){
+            return it->second;
+        }
+        
+        node_pointer_t p = __insert(rank_data);
         if(p != nullptr){
-            m_data.insert(std::make_pair(v.key(), p));
-            //m_data.insert(std::make_pair(v.first, p));
+            m_data.insert(std::make_pair(rank_data.first, p));
+            if(_begin == nullptr || m_comp(rank_data.second, _begin->_value.second)){
+                _begin = p;
+            }
+            
+            if(_back == nullptr || m_comp(_back->_value.second, rank_data.second)){
+                _back = p;
+            }
         }
         return iterator(p); 
     }
-
+#else
+    iterator insert(const_reference v)
+    {
+        auto it = m_data.find(v.first);
+        if(it != m_data.end()){
+            return it->second;
+        }
+        
+        node_pointer_t p = __insert(v);
+        if(p != nullptr){
+            m_data.insert(std::make_pair(v.first, p));
+            if(_begin == nullptr || m_comp(v.second, _begin->_value.second)){
+                _begin = p;
+            }
+            
+            if(_back == nullptr || m_comp(_back->_value.second, v.second)){
+                _back = p;
+            }
+        }
+        return iterator(p); 
+    }
+#endif
     void erase(iterator i)
     {
         if(i.m_p){
-            auto it = m_data.find(i.m_p->value.key());
+            const auto& it = m_data.find(i.m_p->_value.first);
             if(it != m_data.end()){
                 m_data.erase(it);
             }
+            if(i == _begin){
+                _begin = next(i.m_p);
+            }
+            if(i == _back){
+                _back = prev(i.m_p);
+            }
+            __erase(i.m_p);
         }
-        return __erase(i.m_p);
     }
 
-
-    iterator lower_bound(const key_t& k)
+    iterator lower_bound(const rank_data_value_t& k)
     {
         return iterator(__lower_bound(k, m_comp));
     }
 
-    iterator upper_bound(const key_t& k)
+    iterator upper_bound(const rank_data_value_t& k)
     {
         return iterator(__upper_bound(k, m_comp));
     }
@@ -373,31 +432,28 @@ public:
         return m_root ? m_root->size : 0;
     }
 
-    // TODO cache iterator begin.
     iterator begin()
     {
-        return iterator(minimum(m_root));
+        return iterator(_begin);
     }
-
-    iterator last()
-    {
-        return iterator(maximum(m_root));
-    }
-
     iterator end()
     {
         return iterator();
     }
 
+    iterator back()
+    {
+        return iterator(_back);
+    }
 private:
 
-    node_pointer_t __lower_bound(const key_t& k, comp_t comp)
+    node_pointer_t __lower_bound(const rank_data_key_t& k, comp_t comp)
     {
         node_pointer_t n = m_root;
         node_pointer_t p = nullptr;
         while (n)
         {
-            if(comp(n->value.second, k))
+            if(comp(n->_value.second, k))
                 // k > root, so root as left, turn right 
                 n = n->children[1];
             else
@@ -410,14 +466,14 @@ private:
         return p;
     }
 
-    node_pointer_t __upper_bound(const key_t& k, comp_t comp)
+    node_pointer_t __upper_bound(const rank_data_value_t& k, comp_t comp)
     {
         // invariant left <= key < right
         node_pointer_t n = m_root;
         node_pointer_t p = nullptr;
         while (n)
         {
-            if(comp(k, n->value))
+            if(comp(k, n->_value.second))
             {
                 p = n;
                 n = n->children[0];
@@ -428,7 +484,7 @@ private:
         return p;
     }
 
-
+    // base 1
     rank_t __rank(node_pointer_t n) const
     {
         // the reverse process of __find_by_rank.
@@ -447,33 +503,34 @@ private:
             n = p;
             p = n->parent; 
         }
-        return r;
+        return r+1;
     }
-
+    // base 1
     node_pointer_t __find_by_rank(rank_t r) const
     {
-        // the reverse process of __rank.
-        if (r >= size())
+        if (r <= 0 || r > size())
         {
             return nullptr;
         }
+        //r -= 1;
+        // the reverse process of __rank.
         node_pointer_t n = m_root;
 
         while (n)
         {
             node_pointer_t left = n->children[0];
-            rank_t left_size = left ? left->size : 0;
-            if (r < left_size)
+            rank_t left_size = left ? left->size +1 : 1;
+            if (r < left_size )
             {
                 n = left;
             }
-            else if (r == left_size)
+            else if (r == left_size )
             {
                 return n;
             }
             else
             {
-                r -= left_size + 1;
+                r -= left_size ;
                 n = n->children[1];
             }
         }
@@ -482,8 +539,9 @@ private:
 
     node_pointer_t __insert(const_reference v)
     {
-        node_pointer_t n = __allocate_node();
-        n->value = v;
+        //node_pointer_t n = std::make_shared<node>();
+        node_pointer_t n = __allocate_node(v);
+        //n->value = v;
         if (!m_root)
         {
             m_root = n;
@@ -494,11 +552,11 @@ private:
         node_pointer_t p = nullptr;
         while (h)
         {
-            uint32_t dir = !m_comp(v, h->value);
+            uint32_t dir = !m_comp(v.second, h->_value.second);
             p = h;
             h = h->children[dir];
         }
-        uint32_t dir = !m_comp(v, p->value);
+        uint32_t dir = !m_comp(v.second, p->_value.second);
 
         p->children[dir] = n;
         n->parent = p;
@@ -536,11 +594,10 @@ private:
 
     void __erase(node_pointer_t n)
     {
-        //assert_retnone(m_root);
         if (n->children[0] && n->children[1])
         {
             node_pointer_t successor = next(n);
-            node_pointer_t c = NULL;
+            node_pointer_t c = nullptr;
 
             if (successor == n->children[1])
             {
@@ -602,7 +659,7 @@ private:
             }
         }
 
-        node_pointer_t c = NULL;
+        node_pointer_t c = nullptr;
         node_pointer_t p = n->parent;
         c = n->children[0]?n->children[0]: n->children[1];
         node_pointer_t saved_n = n;
@@ -680,16 +737,40 @@ finished:
 
     pointer __root(){return m_root;}
 
-    node_pointer_t __allocate_node()
+    node_pointer_t __allocate_node(const_reference v)
     {
-        node_pointer_t n = m_alloc.allocate(1);
-        n->construct();
+        //node_pointer_t n = std::make_shared<node>();
+        node_pointer_t n = _is_free_list_empty() ? m_alloc.allocate(1) : _get_node_from_free_list();
+        n->construct(v);
         return n;
     }
-    void __deallocate_node(node_pointer_t n)
+    void __deallocate_node(node_pointer_t n, bool use_cache = true)
     {
-        n->~node();
-        m_alloc.deallocate(n, 1);
+        if(use_cache){
+            _add_node_to_free_list(n);
+        }else{
+            n->~node();
+            m_alloc.deallocate(n, 1);
+        }
+    }
+
+    void _add_node_to_free_list(node_pointer_t node){
+        node->parent = m_free_list;
+        m_free_list = node;
+    }
+
+    node_pointer_t _get_node_from_free_list(){
+        node_pointer_t node = nullptr;
+        if(m_free_list){
+            node = m_free_list;
+            m_free_list = node->parent;
+            
+        }
+        return node;
+    }
+
+    bool _is_free_list_empty(){
+        return m_free_list == nullptr;
     }
 
     void clear(node_pointer_t n)
@@ -702,7 +783,7 @@ finished:
         {
             clear(n->children[0]);
             clear(n->children[1]);
-            __deallocate_node(n);
+            __deallocate_node(n, false);
         }
     }
 public:
@@ -710,7 +791,13 @@ public:
     data_allocator_t m_alloc;
     comp_t  m_comp;
     map_t m_data;
+private:
+    node_pointer_t m_free_list;
+
+    node_pointer_t _begin;
+    node_pointer_t _back;
+
 };
-void test(int count = 10000);
+void test(int count = 100000);
 }
 #endif //_RANK_TREE_H_

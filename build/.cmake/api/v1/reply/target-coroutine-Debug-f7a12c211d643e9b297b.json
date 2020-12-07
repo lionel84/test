@@ -53,7 +53,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -g -fPIC -std=c++11 -O3 -lhiredis -levent -lcurl -lpthread -lssl -lcrypto -Wunused-function -fpermissive -g  "
+					"fragment" : " -g -fPIC  -O2 -std=c++11 -lhiredis -levent -lcurl -lpthread -lssl -lcrypto -Wunused-function -fpermissive -g  "
 				}
 			],
 			"includes" : 
