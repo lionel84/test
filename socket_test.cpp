@@ -2,7 +2,7 @@
  * @Auth: lionelzhang
  * @Date: 2020-08-27 11:23:46
  * @LastEditors: lionelzhang
- * @LastEditTime: 2020-10-22 16:55:51
+ * @LastEditTime: 2020-12-07 17:03:23
  * @Description: 
  */
 #include <sys/socket.h>
@@ -190,6 +190,8 @@ void test_send_curl(void)
 
     void recv_test()
     {
+      //CURLINFO_ACTIVESOCKET
+      //CURLINFO_COOKIELIST
         int32_t		nSockHandle;
         nSockHandle = socket(AF_INET, SOCK_DGRAM, 0);
         printf("nSockHandle: %d\n", nSockHandle);

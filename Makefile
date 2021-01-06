@@ -520,6 +520,33 @@ test_comp.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_comp.cpp.s
 .PHONY : test_comp.cpp.s
 
+test_function.o: test_function.cpp.o
+
+.PHONY : test_function.o
+
+# target to build an object file
+test_function.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_function.cpp.o
+.PHONY : test_function.cpp.o
+
+test_function.i: test_function.cpp.i
+
+.PHONY : test_function.i
+
+# target to preprocess a source file
+test_function.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_function.cpp.i
+.PHONY : test_function.cpp.i
+
+test_function.s: test_function.cpp.s
+
+.PHONY : test_function.s
+
+# target to generate assembly for a file
+test_function.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_function.cpp.s
+.PHONY : test_function.cpp.s
+
 test_json_pack.o: test_json_pack.cpp.o
 
 .PHONY : test_json_pack.o
@@ -546,6 +573,33 @@ test_json_pack.s: test_json_pack.cpp.s
 test_json_pack.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_json_pack.cpp.s
 .PHONY : test_json_pack.cpp.s
+
+test_m_list.o: test_m_list.cpp.o
+
+.PHONY : test_m_list.o
+
+# target to build an object file
+test_m_list.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_m_list.cpp.o
+.PHONY : test_m_list.cpp.o
+
+test_m_list.i: test_m_list.cpp.i
+
+.PHONY : test_m_list.i
+
+# target to preprocess a source file
+test_m_list.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_m_list.cpp.i
+.PHONY : test_m_list.cpp.i
+
+test_m_list.s: test_m_list.cpp.s
+
+.PHONY : test_m_list.s
+
+# target to generate assembly for a file
+test_m_list.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_m_list.cpp.s
+.PHONY : test_m_list.cpp.s
 
 test_map.o: test_map.cpp.o
 
@@ -600,6 +654,60 @@ test_popen.s: test_popen.cpp.s
 test_popen.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_popen.cpp.s
 .PHONY : test_popen.cpp.s
+
+test_ptr.o: test_ptr.cpp.o
+
+.PHONY : test_ptr.o
+
+# target to build an object file
+test_ptr.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_ptr.cpp.o
+.PHONY : test_ptr.cpp.o
+
+test_ptr.i: test_ptr.cpp.i
+
+.PHONY : test_ptr.i
+
+# target to preprocess a source file
+test_ptr.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_ptr.cpp.i
+.PHONY : test_ptr.cpp.i
+
+test_ptr.s: test_ptr.cpp.s
+
+.PHONY : test_ptr.s
+
+# target to generate assembly for a file
+test_ptr.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_ptr.cpp.s
+.PHONY : test_ptr.cpp.s
+
+test_rand.o: test_rand.cpp.o
+
+.PHONY : test_rand.o
+
+# target to build an object file
+test_rand.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_rand.cpp.o
+.PHONY : test_rand.cpp.o
+
+test_rand.i: test_rand.cpp.i
+
+.PHONY : test_rand.i
+
+# target to preprocess a source file
+test_rand.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_rand.cpp.i
+.PHONY : test_rand.cpp.i
+
+test_rand.s: test_rand.cpp.s
+
+.PHONY : test_rand.s
+
+# target to generate assembly for a file
+test_rand.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_rand.cpp.s
+.PHONY : test_rand.cpp.s
 
 test_state_mechine.o: test_state_mechine.cpp.o
 
@@ -759,15 +867,27 @@ help:
 	@echo "... test_comp.o"
 	@echo "... test_comp.i"
 	@echo "... test_comp.s"
+	@echo "... test_function.o"
+	@echo "... test_function.i"
+	@echo "... test_function.s"
 	@echo "... test_json_pack.o"
 	@echo "... test_json_pack.i"
 	@echo "... test_json_pack.s"
+	@echo "... test_m_list.o"
+	@echo "... test_m_list.i"
+	@echo "... test_m_list.s"
 	@echo "... test_map.o"
 	@echo "... test_map.i"
 	@echo "... test_map.s"
 	@echo "... test_popen.o"
 	@echo "... test_popen.i"
 	@echo "... test_popen.s"
+	@echo "... test_ptr.o"
+	@echo "... test_ptr.i"
+	@echo "... test_ptr.s"
+	@echo "... test_rand.o"
+	@echo "... test_rand.i"
+	@echo "... test_rand.s"
 	@echo "... test_state_mechine.o"
 	@echo "... test_state_mechine.i"
 	@echo "... test_state_mechine.s"

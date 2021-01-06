@@ -1,11 +1,11 @@
 /*
  * @Auth: lionelzhang
- * @Date: 2020-10-22 17:04:26
+ * @Date: 2021-01-06 10:34:11
  * @LastEditors: lionelzhang
- * @LastEditTime: 2021-01-06 10:39:42
+ * @LastEditTime: 2021-01-06 10:34:33
  * @Description: 
  */
-
-namespace nm_ptr1 {
+namespace nm_ptr
+{
     void test();
 }

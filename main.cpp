@@ -2,7 +2,7 @@
  * @Author: lionel
  * @Date: 2020-07-22 17:33:50
  * @LastEditors: lionelzhang
- * @LastEditTime: 2020-11-06 17:34:01
+ * @LastEditTime: 2021-01-06 10:41:07
  * @Description: main
  */ 
 
@@ -47,9 +47,8 @@ void test(EN_TEST value){
 #include "rank_skip_list.h"
 #include "rank_test.h"
 map< int, int> map_;
-class BASE{
-    int a() = 0;
-};
+#include "test_rand.h"
+#include "test_function.h"
 class TEST_CLASS{
 public:
     TEST_CLASS(){
@@ -64,13 +63,41 @@ public:
     }
     int _val;
 };
+#include "test_m_list.h"
+template<typename RT, typename P0, typename IP0>
+int foo(RT (*func)(P0), IP0& param){
+    func(param);
+}
+/*
+template<typename RT, typename P0, typename IP0>
+int foo(RT (*func)(P0), IP0 param){
+    func(param);
+}
+*/
+template<typename RT, typename P0, typename IP0>
+int foo(RT (*func)(P0), IP0&& param){
+    func(param);
+}
+/*
+template<typename RT, typename P0>
+int foo(RT (*func)(P0&), P0 param){
+    func(param);
+}
+*/
+#include "test_ptr.h"
+int dayin(int& a){
+    printf("a: %d\n", a);
+    return 0;
+}
 int main(int argc, char** argv) {
     int ret = 0;
     UNUSED(argc);
     UNUSED(argv);
     UNUSED(ret);
-
-    //redis_test();
+    //nm_test_function::test();
+   // nm_test_function::testtest();
+ nm_ptr::test();
+    return 1;
     map<int, int> test_map;
     test_map.insert(std::make_pair(12, 13));
     const map<int, int>::iterator& it1 = test_map.begin();

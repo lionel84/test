@@ -19,6 +19,7 @@
 #include <set>
 #include <iostream> 
 #include <unordered_map>
+#include <memory>
 //#include <ext/hash_map>
 //using namespace __gnu_cxx;
 using namespace std;
