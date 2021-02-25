@@ -22,7 +22,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/test_state_mechine.cpp.o"
   "CMakeFiles/main.dir/test_template.cpp.o"
   "CMakeFiles/main.dir/test_test.cpp.o"
+  "CMakeFiles/main.dir/test_timer.cpp.o"
   "CMakeFiles/main.dir/test_tree.cpp.o"
+  "CMakeFiles/main.dir/test_uv.cpp.o"
   "main"
   "main.pdb"
 )

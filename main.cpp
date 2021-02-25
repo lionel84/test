@@ -2,7 +2,7 @@
  * @Author: lionel
  * @Date: 2020-07-22 17:33:50
  * @LastEditors: lionelzhang
- * @LastEditTime: 2021-01-06 10:41:07
+ * @LastEditTime: 2021-02-01 17:13:10
  * @Description: main
  */ 
 
@@ -84,43 +84,15 @@ int foo(RT (*func)(P0&), P0 param){
     func(param);
 }
 */
-#include "test_ptr.h"
-int dayin(int& a){
-    printf("a: %d\n", a);
-    return 0;
-}
+
+#include "test_timer.h"
 int main(int argc, char** argv) {
     int ret = 0;
     UNUSED(argc);
     UNUSED(argv);
     UNUSED(ret);
-    //nm_test_function::test();
-   // nm_test_function::testtest();
- nm_ptr::test();
-    return 1;
-    map<int, int> test_map;
-    test_map.insert(std::make_pair(12, 13));
-    const map<int, int>::iterator& it1 = test_map.begin();
-    cout<<&it1<<endl;
-    cout<<it1->first<<endl;
-    auto it2 = test_map.end();
-   // auto it3 = test_map.first();
-   // auto it4 = test_map.last();
-   auto it5  = test_map.find(2);
-    
-     int test_count = 1000000;
-    if(argc > 1){
-        test_count = atoi(argv[1]);
-    }
-    nm_rank_test::test(test_count);
-   // nm_rank_tree_v1::test(1000000);
-   // nm_rank_tree::test(test_count); 
-  //  nm_rank_tree_v3::test(1000000);
-  //nm_rank_skip_list::test(test_count);
-    //nm_ptr::test();
-    //nm_test_aes_cbc::test();
 
-    //nm_test_popen::test();
+    nm_timer::test();
     return 0;
 }
 

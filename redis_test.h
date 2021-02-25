@@ -8,6 +8,15 @@
 #include "base.h"
 
 struct schedule;
+struct schedule;
+#pragma pack(1)
+struct args {
+    schedule* s_;
+    int col_;
+    bool result_;
+};
+
+#pragma pack()
 void get_key(struct schedule* S, void *ud);
 void redis_test();
 

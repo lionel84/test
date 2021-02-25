@@ -790,6 +790,33 @@ test_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_test.cpp.s
 .PHONY : test_test.cpp.s
 
+test_timer.o: test_timer.cpp.o
+
+.PHONY : test_timer.o
+
+# target to build an object file
+test_timer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_timer.cpp.o
+.PHONY : test_timer.cpp.o
+
+test_timer.i: test_timer.cpp.i
+
+.PHONY : test_timer.i
+
+# target to preprocess a source file
+test_timer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_timer.cpp.i
+.PHONY : test_timer.cpp.i
+
+test_timer.s: test_timer.cpp.s
+
+.PHONY : test_timer.s
+
+# target to generate assembly for a file
+test_timer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_timer.cpp.s
+.PHONY : test_timer.cpp.s
+
 test_tree.o: test_tree.cpp.o
 
 .PHONY : test_tree.o
@@ -816,6 +843,33 @@ test_tree.s: test_tree.cpp.s
 test_tree.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_tree.cpp.s
 .PHONY : test_tree.cpp.s
+
+test_uv.o: test_uv.cpp.o
+
+.PHONY : test_uv.o
+
+# target to build an object file
+test_uv.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_uv.cpp.o
+.PHONY : test_uv.cpp.o
+
+test_uv.i: test_uv.cpp.i
+
+.PHONY : test_uv.i
+
+# target to preprocess a source file
+test_uv.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_uv.cpp.i
+.PHONY : test_uv.cpp.i
+
+test_uv.s: test_uv.cpp.s
+
+.PHONY : test_uv.s
+
+# target to generate assembly for a file
+test_uv.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/test_uv.cpp.s
+.PHONY : test_uv.cpp.s
 
 # Help Target
 help:
@@ -897,9 +951,15 @@ help:
 	@echo "... test_test.o"
 	@echo "... test_test.i"
 	@echo "... test_test.s"
+	@echo "... test_timer.o"
+	@echo "... test_timer.i"
+	@echo "... test_timer.s"
 	@echo "... test_tree.o"
 	@echo "... test_tree.i"
 	@echo "... test_tree.s"
+	@echo "... test_uv.o"
+	@echo "... test_uv.i"
+	@echo "... test_uv.s"
 .PHONY : help
 
 

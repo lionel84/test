@@ -9,20 +9,10 @@
 #include <iostream>
 #include <vector>
 #include <sstream>
-//#include "HiredisHelper.h"
-#include "coroutine.h"
 #include "base.h"
 using namespace std;
 #include  <sys/time.h>
-typedef unsigned long long cycles_t;
 
-cycles_t currentcycles1()
-{
-    cycles_t result;
-    __asm__ __volatile__ ("rdtsc" : "=A" (result));
-        
-    return result;
-}
 static inline unsigned long long rdtsc(void)
 {
   unsigned hi, lo;
@@ -57,10 +47,9 @@ void printnow(string desc){
     gettimeofday(&tm,NULL);
     unsigned long long time_c_c = rdtsc();
     if(time !=0 && desc != ""){
-
         printf(
-            "%s cost time : %llu us cycles: %llu us %llu %llu %llu\n",desc.c_str(), (tm.tv_sec*1000000+tm.tv_usec - time)
-        , (time_c_c - time_c)/pinlv, time_c_c - time_c, time_c_c, time_c);
+            "%s cost time : %llu us rtdsc: %llu [rtdsc=>us: %llu us]\n",desc.c_str(), (tm.tv_sec*1000000+tm.tv_usec - time)
+        ,time_c_c - time_c, (time_c_c - time_c)/pinlv);
     }
     time = tm.tv_sec*1000000+tm.tv_usec;
     time_c = time_c_c;

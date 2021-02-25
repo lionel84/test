@@ -27,7 +27,9 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/data/code/main/test_state_mechine.cpp" "/data/code/main/CMakeFiles/main.dir/test_state_mechine.cpp.o"
   "/data/code/main/test_template.cpp" "/data/code/main/CMakeFiles/main.dir/test_template.cpp.o"
   "/data/code/main/test_test.cpp" "/data/code/main/CMakeFiles/main.dir/test_test.cpp.o"
+  "/data/code/main/test_timer.cpp" "/data/code/main/CMakeFiles/main.dir/test_timer.cpp.o"
   "/data/code/main/test_tree.cpp" "/data/code/main/CMakeFiles/main.dir/test_tree.cpp.o"
+  "/data/code/main/test_uv.cpp" "/data/code/main/CMakeFiles/main.dir/test_uv.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
